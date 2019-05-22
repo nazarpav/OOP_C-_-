@@ -66,7 +66,7 @@ unsigned short template_menu(const string menu[], const unsigned short size_menu
 	}
 	return choise;
 }
-void show_players(const Player Players[], const unsigned short &size)
+void show_players(const Player Players[], const unsigned short &size, unsigned short i)
 {
 	system("cls");
 	for (unsigned short i = 0; i < size; i++)
@@ -76,9 +76,13 @@ void show_players(const Player Players[], const unsigned short &size)
 		cout << "Age:" << Players[i].age << endl;
 		cout << "Games:" << Players[i].games << endl;
 		cout << "Points:" << Players[i].points << endl;
-		cout << "AvgPointPerGame:" << Players[i].avgPointPerGame << endl;
+		cout << "AvgPointPerGame:" << Players[i].avgPointPerGame << endl << endl;
 	}
-	Sleep(5000);//sleep 5 sec
+	if (size == 0)
+	{
+		cout << "Your array is Empty!\n";
+	}
+	Sleep(3000);//sleep 5 sec
 }
 
 float AveragePoint(const Player player_arr[],const unsigned short &index_)
@@ -86,10 +90,10 @@ float AveragePoint(const Player player_arr[],const unsigned short &index_)
 	return (float)player_arr[index_].games / player_arr[index_].points;
 }
 
-void fill_player_arr(Player player_arr[],const unsigned short &size)
+void fill_player_arr(Player *player_arr, const unsigned short size, unsigned short i = 0)
 {
 	system("cls");
-	for (unsigned short i = 0; i < size; i++)
+	for (; i < size; i++)
 	{
 
 		cout << "Please enter name:" << endl;
@@ -107,15 +111,63 @@ void fill_player_arr(Player player_arr[],const unsigned short &size)
 		cout << "Please enter points:" << endl;
 		cin >> player_arr[i].points;
 
-		player_arr[i].avgPointPerGame = AveragePoint(player_arr,i); // обчислення середньої кількості
+		player_arr[i].avgPointPerGame = AveragePoint(player_arr, i); // обчислення середньої кількості
 
+	}
+}
+void add_player_to_arr(Player *&player_arr, unsigned short &size)
+{
+	Player *new_player_arr = new Player[size + 1];
+
+	for (unsigned short i = 0; i < size; i++)
+	{
+		new_player_arr[i] = player_arr[i];
+	}
+	size++;
+	fill_player_arr(new_player_arr, size, size-1);
+	delete[] player_arr;
+	player_arr = new_player_arr;
+}
+
+void del_player_to_arr(Player *&player_arr, unsigned short &size, unsigned short index_)
+{
+	Player *new_player_arr = new Player[size -1];
+	unsigned short iterator_ = 0;
+	for (unsigned short i = 0; i < size; i++)
+	{
+		if (index_ == i)
+		{
+			continue;
+		}
+
+		new_player_arr[iterator_] = player_arr[i];
+
+		iterator_++;
+	}
+	size--;
+	delete[] player_arr;
+	player_arr = new_player_arr;
+}
+
+unsigned short search_data_in_arr(const Player player_arr[], const unsigned short &size)
+{
+	system("cls");
+	string data_to_search{};
+	cout << "Enter data to search (\" Players name \")-> ";
+	cin >> data_to_search;
+	for (unsigned short i = 0; i < size; i++)
+	{
+		if (player_arr[i].name.find(data_to_search)!=string::npos)
+		{
+			return i;
+		}
 	}
 }
 
 void Save_in_file(const Player player_arr[], const unsigned short &size)
 {
 	ofstream out("Players.txt", ios_base::out);
-
+	out << size<<endl;
 	for (unsigned short i = 0; i < size; i++)
 	{
 		out << player_arr[i].name << endl;
@@ -132,10 +184,11 @@ void Save_in_file(const Player player_arr[], const unsigned short &size)
 	Sleep(2000);//sleep 2 sec
 }
 
-void Load_from_file(Player player_arr[], const unsigned short &size)
+void Load_from_file(Player *&player_arr, unsigned short &size)
 {
 	ifstream in("Players.txt", ios_base::in);
-
+	in >> size;
+	player_arr = new Player[size];
 	for (unsigned short i = 0; i < size; i++)
 	{
 		in >> player_arr[i].name;
@@ -154,17 +207,21 @@ void Load_from_file(Player player_arr[], const unsigned short &size)
 
 int main()
 {
-	const int size = 2;
-	Player player_arr[10]; // = CreatePlayer();
-	const unsigned short size_menu = 5; // size menu
+	unsigned short size = 0;
+	Player * player_arr = nullptr; // = CreatePlayer();
+	const unsigned short size_menu = 8; // size menu
 	string menu[size_menu] // = menu
 	{
 		"Load from file",
 		"Show all players",
 		"Save to file",
 		"Fill all data players",
+		"Add new player",
+		"Del player",
+		"Search player",
 		"Exit"
 	};
+	unsigned short ind = 0;
 	bool flag = true;
 	while (flag == true)
 	{
@@ -175,7 +232,7 @@ int main()
 			Load_from_file(player_arr, size);
 			break;
 		case 2:
-			show_players(player_arr, size);
+			show_players(player_arr, size,0);
 			break;
 		case 3:
 			Save_in_file(player_arr, size);
@@ -184,6 +241,28 @@ int main()
 			fill_player_arr(player_arr, size);
 			break;
 		case 5:
+			add_player_to_arr(player_arr, size);
+			break;
+		case 6:
+			ind = search_data_in_arr(player_arr, size);
+			if (ind > size)
+			{
+				cout << "Not found!";
+				Sleep(2000);
+			}
+			del_player_to_arr(player_arr, size, ind);
+			break;
+		case 7:
+			ind = search_data_in_arr(player_arr, size);
+			if (ind > size)
+			{
+				cout << "Not found!";
+				Sleep(2000);
+				break;
+			}
+			show_players(player_arr, size, ind);
+			break;
+		case 8:
 			flag = false;
 			break;
 		}
