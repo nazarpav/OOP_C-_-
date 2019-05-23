@@ -47,16 +47,11 @@ public:
 		info.bVisible = FALSE;
 		SetConsoleCursorInfo(consoleHandle, &info);
 	}
-	void setColor(int text, int background)
-	{
-		HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-		SetConsoleTextAttribute(hStdOut, (WORD)((background << 4) | text));
-	}
 	void show()
 	{
 		system("cls");
 		HideConsoleCursor();
-		setColor(13, 0);
+		SetConsoleTextAttribute(consoleWndHandle, ConsoleColors::RED);
 		for (unsigned short i = 0; i < height; i++)
 		{
 			SetCursor(x, y + i);
