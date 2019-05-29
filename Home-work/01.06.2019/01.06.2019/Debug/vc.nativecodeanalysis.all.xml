@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?><DEFECTS><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\назар\desktop\oop c++\home-work\01.06.2019\01.06.2019\</FILEPATH>
+      <FILENAME>arr_student.cpp</FILENAME>
+      <LINE>6</LINE>
+      <COLUMN>30</COLUMN>
+    </SFA>
+    <DEFECTCODE>26440</DEFECTCODE>
+    <DESCRIPTION>Function 'student::get_UID' can be declared 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>student::get_UID</FUNCTION>
+    <DECORATED>?get_UID@student@@QBEIXZ</DECORATED>
+    <FUNCLINE>6</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\назар\desktop\oop c++\home-work\01.06.2019\01.06.2019\</FILEPATH>
+      <FILENAME>arr_student.cpp</FILENAME>
+      <LINE>26</LINE>
+      <COLUMN>30</COLUMN>
+    </SFA>
+    <DEFECTCODE>26440</DEFECTCODE>
+    <DESCRIPTION>Function 'student::get_telephone_number' can be declared 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>student::get_telephone_number</FUNCTION>
+    <DECORATED>?get_telephone_number@student@@QBEIXZ</DECORATED>
+    <FUNCLINE>26</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\назар\desktop\oop c++\home-work\01.06.2019\01.06.2019\</FILEPATH>
+      <FILENAME>arr_student.cpp</FILENAME>
+      <LINE>30</LINE>
+      <COLUMN>23</COLUMN>
+    </SFA>
+    <DEFECTCODE>26440</DEFECTCODE>
+    <DESCRIPTION>Function 'student::get_average_assessment' can be declared 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>student::get_average_assessment</FUNCTION>
+    <DECORATED>?get_average_assessment@student@@QBEMXZ</DECORATED>
+    <FUNCLINE>30</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\назар\desktop\oop c++\home-work\01.06.2019\01.06.2019\</FILEPATH>
+      <FILENAME>arr_student.cpp</FILENAME>
+      <LINE>50</LINE>
+      <COLUMN>22</COLUMN>
+    </SFA>
+    <DEFECTCODE>26440</DEFECTCODE>
+    <DESCRIPTION>Function 'student::set_telephone_number' can be declared 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>student::set_telephone_number</FUNCTION>
+    <DECORATED>?set_telephone_number@student@@QAEXI@Z</DECORATED>
+    <FUNCLINE>50</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\назар\desktop\oop c++\home-work\01.06.2019\01.06.2019\</FILEPATH>
+      <FILENAME>arr_student.cpp</FILENAME>
+      <LINE>54</LINE>
+      <COLUMN>22</COLUMN>
+    </SFA>
+    <DEFECTCODE>26440</DEFECTCODE>
+    <DESCRIPTION>Function 'student::set_average_assessment' can be declared 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>student::set_average_assessment</FUNCTION>
+    <DECORATED>?set_average_assessment@student@@QAEXM@Z</DECORATED>
+    <FUNCLINE>54</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\назар\desktop\oop c++\home-work\01.06.2019\01.06.2019\</FILEPATH>
+      <FILENAME>arr_student.cpp</FILENAME>
+      <LINE>74</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26496</DEFECTCODE>
+    <DESCRIPTION>The variable 'telephone_number' is assigned only once, mark it as const (con.4).</DESCRIPTION>
+    <FUNCTION>student::{ctor}</FUNCTION>
+    <DECORATED>??0student@@QAE@XZ</DECORATED>
+    <FUNCLINE>67</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\назар\desktop\oop c++\home-work\01.06.2019\01.06.2019\</FILEPATH>
+      <FILENAME>arr_student.cpp</FILENAME>
+      <LINE>75</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>26496</DEFECTCODE>
+    <DESCRIPTION>The variable 'average_assessment' is assigned only once, mark it as const (con.4).</DESCRIPTION>
+    <FUNCTION>student::{ctor}</FUNCTION>
+    <DECORATED>??0student@@QAE@XZ</DECORATED>
+    <FUNCLINE>67</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\назар\desktop\oop c++\home-work\01.06.2019\01.06.2019\</FILEPATH>
+      <FILENAME>arr_student.cpp</FILENAME>
+      <LINE>67</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'student::telephone_number' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>student::{ctor}</FUNCTION>
+    <DECORATED>??0student@@QAE@XZ</DECORATED>
+    <FUNCLINE>67</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\назар\desktop\oop c++\home-work\01.06.2019\01.06.2019\</FILEPATH>
+      <FILENAME>arr_student.cpp</FILENAME>
+      <LINE>67</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26455</DEFECTCODE>
+    <DESCRIPTION>Default constructor may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>student::{ctor}</FUNCTION>
+    <DECORATED>??0student@@QAE@XZ</DECORATED>
+    <FUNCLINE>67</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\назар\desktop\oop c++\home-work\01.06.2019\01.06.2019\</FILEPATH>
+      <FILENAME>arr_student.cpp</FILENAME>
+      <LINE>79</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26432</DEFECTCODE>
+    <DESCRIPTION>If you define or delete any default operation in the type 'class student', define or delete them all (c.21).</DESCRIPTION>
+    <FUNCTION>student::{dtor}</FUNCTION>
+    <DECORATED>??1student@@QAE@XZ</DECORATED>
+    <FUNCLINE>79</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT></DEFECTS>

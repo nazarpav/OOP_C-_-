@@ -1,4 +1,3 @@
-﻿  main.cpp
-c:\users\назар\desktop\oop c++\class-work\23.05.2019\23.05.2019\main.cpp(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-c:\users\назар\desktop\oop c++\class-work\23.05.2019\23.05.2019\main.cpp(16): error C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\time.h(506): note:  см. объявление "localtime"
+﻿  Student.cpp
+c:\users\назар\desktop\oop c++\class-work\23.05.2019\23.05.2019\student.cpp(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  23.05.2019.vcxproj -> C:\Users\назар\Desktop\OOP C++\Class-work\23.05.2019\Debug\23.05.2019.exe

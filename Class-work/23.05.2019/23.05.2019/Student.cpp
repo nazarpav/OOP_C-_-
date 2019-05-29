@@ -5,7 +5,7 @@
 
 void student::show_student()
 {
-	cout<<"name: " <<name<<endl;
+	cout <<"name: " <<name<<endl;
 	cout <<"surnmae: "<< surname << endl;
 	cout << "age: "<<age << endl;
 	cout <<"year of birth: "<< year_of_birth << endl;

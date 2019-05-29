@@ -1,0 +1,5 @@
+﻿  Group.cpp
+  main.cpp
+c:\users\назар\desktop\oop c++\home-work\06.06.2019\06.06.2019\main.cpp(25): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  Создание кода...
+  06.06.2019.vcxproj -> C:\Users\назар\Desktop\OOP C++\Home-work\06.06.2019\Debug\06.06.2019.exe

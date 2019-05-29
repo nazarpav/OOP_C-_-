@@ -1,0 +1,6 @@
+﻿  Group.cpp
+c:\users\назар\desktop\oop c++\class-work\27.05.2019\27.05.2019\group.h(23): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+  main.cpp
+c:\users\назар\desktop\oop c++\class-work\27.05.2019\27.05.2019\group.h(23): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+  Создание кода...
+  27.05.2019.vcxproj -> C:\Users\назар\Desktop\OOP C++\Class-work\27.05.2019\Debug\27.05.2019.exe
