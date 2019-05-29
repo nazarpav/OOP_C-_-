@@ -31,7 +31,7 @@ int main()
 
 	obj.Show();
 	obj.AddRow(arr2);
-	obj.AddRow(arr2);
+	//obj.AddRow(arr2);
 	//obj.AddRow(arr2,5);
 	cout << endl;
 	obj.Show();
