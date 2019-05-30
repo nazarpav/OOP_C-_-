@@ -10,7 +10,9 @@ public:
 
 
 	//void AddElement(int elem, int index_);
-	void AddRow(int * row/*,int size*/);
+	void AddRow(int * row,int size);
+	void AddCol(int col);
+	void RemoveCol(int col);
 	void RemoveRow(int row_);
 	void Show() const;
 	void Clear();
