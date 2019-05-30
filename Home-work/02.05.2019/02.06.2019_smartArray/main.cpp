@@ -55,6 +55,11 @@ int main()
 	obj.AddCol(2);
 	obj.AddCol(2);
 	obj.AddCol(2);
+
+	cout << endl;
+	obj.Show();
+
+	obj.sort();
 	cout << endl;
 	obj.Show();
 

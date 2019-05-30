@@ -8,7 +8,6 @@ Smart_Array::Smart_Array()
 	arr = nullptr;
 	rows = 0;
 	colums = 0;
-	length = nullptr;
 }
 Smart_Array::Smart_Array(int value, int rows, int colums)
 {
@@ -144,6 +143,25 @@ void Smart_Array::AddCol(int col)
 		arr[i] = Buf_Arr[i];
 	}
 	delete[]Buf_Arr;
+}
+void Smart_Array::sort()
+{
+		int tmp;
+	for (int y = 0; y < rows; y++)
+	{
+		for (int i = 1; i < colums; ++i)
+		{
+			for (int j = 0; j < colums - i; j++)
+			{
+				if (arr[y][j] < arr[y][j+1])
+				{
+					tmp = arr[y][j];
+					arr[y][j] = arr[y][j + 1];
+					arr[y][j + 1] = tmp;
+				}
+			}
+		}
+	}
 }
 void Smart_Array::RemoveCol(int col)
 {

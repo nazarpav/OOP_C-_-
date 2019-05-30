@@ -9,9 +9,9 @@ public:
 	~Smart_Array();
 
 
-	//void AddElement(int elem, int index_);
 	void AddRow(int * row,int size);
 	void AddCol(int col);
+	void sort();
 	void RemoveCol(int col);
 	void RemoveRow(int row_);
 	void Show() const;
@@ -20,7 +20,6 @@ public:
 
 private:
 	int **arr;
-	int *length;
 	int rows, colums;
 };
 
