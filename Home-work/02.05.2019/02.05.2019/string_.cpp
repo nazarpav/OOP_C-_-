@@ -12,12 +12,15 @@ void STRING_::Show()
 
 void STRING_::SetStringFromKeyboard()
 {
-	if (str == nullptr)
+	if (str != nullptr)
 	{
-		this->str = new char[1];
+		delete[]str;
 	}
-	std::cin >> str;
-	length = strlen(str);
+	char buf[255];
+	std::cin.getline(buf, 255);
+	length = strlen(buf);
+	this->str = new char[length + 1];
+	strcpy_s(str, length + 1, buf);
 }
 
 void STRING_::SetString(const char *new_str)
