@@ -31,7 +31,7 @@ STRING_ STRING_::operator+(STRING_& other)
 	tmp_str[newlength - 1] = '\0';
 	delete[] this->str;
 	this->str = tmp_str;
-	std::cout << "adres str-> " << str << std::endl;
+	//std::cout << "adres str-> " << str << std::endl;
 	return *this;
 }
 
@@ -40,21 +40,38 @@ int STRING_::operator=(STRING_& other)
 	return (strcpy_s(this->str, other.length + 1, other.str));
 }
 
-int STRING_::operator*(STRING_& other)
+STRING_ STRING_::operator*(STRING_& other)
 {
-	char buf[255];
 	int j = 0;
-	for (int i = 0; i < length; i++)
+	for (int i = 0; i < this->length; i++)
 	{
-		if (this->str[i] == other.str[i])
+		for (int g = 0; g < other.length; g++)
 		{
-			buf[j] = this->str[i];
-			j++;
+			if (this->str[i] == other.str[g])
+			{
+				j++;
+			}
+		}
+	}
+	char *buf = new char[j+1];
+	j = 0;
+	for (int i = 0; i < this->length; i++)
+	{
+		for (int g = 0; g < other.length; g++)
+		{
+			if (this->str[i] == other.str[g])
+			{
+				buf[j] = str[i];
+				j++;
+			}
 		}
 	}
 	buf[j] = '\0';
 	j++;
-	return (strcpy_s(this->str, j+1 , buf));
+	delete[] this->str;
+	str = new char[j];
+	str = buf;
+	return *this;
 }
 void STRING_::SetStringFromKeyboard()
 {
@@ -210,6 +227,6 @@ STRING_::STRING_(const STRING_& obj)
 
 STRING_::~STRING_()
 {
-	std::cout << "adres str-> " << &str << std::endl;
-	delete[] str;
+	//std::cout << "adres str-> " << &str << std::endl;
+	delete[] this->str;
 }

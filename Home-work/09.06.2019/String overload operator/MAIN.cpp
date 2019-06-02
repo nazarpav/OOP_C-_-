@@ -3,12 +3,14 @@
 using namespace std;
 int main()
 {
-	const int size_ = 5;
-	char arr_[size_]="1234";
+	const int size_ = 4;
+	char arr_[size_]="123";
 	STRING_ obj(arr_,size_);
 	STRING_ obj2(arr_,size_);
-	STRING_ obj3(arr_,size_);
-	STRING_ obj4(arr_,size_);
+	//std::cout << "adres str-> " << &obj.str << std::endl;
+	//std::cout << "adres str-> " << &obj2.str << std::endl;
+	//STRING_ obj3(arr_,size_);
+	//STRING_ obj4(arr_,size_);
 	//STRING_ obj('t',12);
 	//STRING_ obj;
 	obj.Show();
@@ -41,7 +43,7 @@ int main()
 	obj.Show();
 	cout << "\n____________________________________>\n";
 
-	obj * obj2;//<<<<============================================
+	obj = obj2;//<<<<============================================
 	cout << "\n____________________________________>\n";
 	obj.Show();
 	cout << "\n____________________________________>\n";

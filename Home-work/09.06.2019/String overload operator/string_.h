@@ -4,13 +4,13 @@ class STRING_
 {
 private:
 	unsigned int length;
-	char* str;
 public:
+	char* str;
 
 	 void Show();
 	 STRING_ operator+(STRING_ & other);
 	 int operator=(STRING_ & other);
-	 int operator*(STRING_ & other);
+	 STRING_ operator*(STRING_ & other);
 	 void SetStringFromKeyboard();
 	 void SetString(const char*);
 	 char* GetString();
