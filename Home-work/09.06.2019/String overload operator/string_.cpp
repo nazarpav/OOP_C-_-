@@ -9,7 +9,53 @@ void STRING_::Show()
 	}
 	std::cout << str;
 }
+STRING_ STRING_::operator+(STRING_& other)
+{
+	int newlength = this->length + other.length + 1;
+	char * tmp_str = new char[newlength];
+	int j = 0;
+	for (int i = 0; i < newlength-1; i++)
+	{
+		if (i <= this->length - 1)
+		{
+			tmp_str[i] = this->str[i];
 
+		}
+		else
+		{
+			tmp_str[i] = other.str[j];
+			j++;
+		}
+	}
+	this->length = newlength;
+	tmp_str[newlength - 1] = '\0';
+	delete[] this->str;
+	this->str = tmp_str;
+	std::cout << "adres str-> " << str << std::endl;
+	return *this;
+}
+
+int STRING_::operator=(STRING_& other)
+{
+	return (strcpy_s(this->str, other.length + 1, other.str));
+}
+
+int STRING_::operator*(STRING_& other)
+{
+	char buf[255];
+	int j = 0;
+	for (int i = 0; i < length; i++)
+	{
+		if (this->str[i] == other.str[i])
+		{
+			buf[j] = this->str[i];
+			j++;
+		}
+	}
+	buf[j] = '\0';
+	j++;
+	return (strcpy_s(this->str, j+1 , buf));
+}
 void STRING_::SetStringFromKeyboard()
 {
 	if (str != nullptr)
@@ -139,7 +185,7 @@ STRING_::STRING_(char * _str, unsigned int size)
 	}
 	else
 	{
-		length = size;
+		length = size-1;
 		this->str = new char[length + 1];
 
 		for (unsigned int i = 0; i < length; i++)
@@ -151,7 +197,19 @@ STRING_::STRING_(char * _str, unsigned int size)
 	}
 }
 
+STRING_::STRING_(const STRING_& obj)
+{
+	this->length = obj.length;
+	this->str = new char[obj.length + 1];
+	for (int i = 0; i < obj.length; i++)
+	{
+		this->str[i] = obj.str[i];
+	}
+	this->str[length] = '\0';
+}
+
 STRING_::~STRING_()
 {
+	std::cout << "adres str-> " << &str << std::endl;
 	delete[] str;
 }

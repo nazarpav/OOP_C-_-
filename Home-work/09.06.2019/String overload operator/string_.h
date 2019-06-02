@@ -8,6 +8,9 @@ private:
 public:
 
 	 void Show();
+	 STRING_ operator+(STRING_ & other);
+	 int operator=(STRING_ & other);
+	 int operator*(STRING_ & other);
 	 void SetStringFromKeyboard();
 	 void SetString(const char*);
 	 char* GetString();
@@ -19,6 +22,8 @@ public:
 	STRING_();
 	STRING_(char ,unsigned int);
 	STRING_(char *,unsigned int );
+
+	STRING_(const STRING_ & obj);
 
 	~STRING_();
 
