@@ -1,2 +1,9 @@
-﻿  MAIN.cpp
+﻿  string_.cpp
+c:\users\назар\desktop\oop c++\home-work\09.06.2019\string overload operator\string_.cpp(18): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\назар\desktop\oop c++\home-work\09.06.2019\string overload operator\string_.cpp(20): warning C4018: <=: несоответствие типов со знаком и без знака
+c:\users\назар\desktop\oop c++\home-work\09.06.2019\string overload operator\string_.cpp(51): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\назар\desktop\oop c++\home-work\09.06.2019\string overload operator\string_.cpp(53): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\назар\desktop\oop c++\home-work\09.06.2019\string overload operator\string_.cpp(63): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\назар\desktop\oop c++\home-work\09.06.2019\string overload operator\string_.cpp(65): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\назар\desktop\oop c++\home-work\09.06.2019\string overload operator\string_.cpp(204): warning C4018: <: несоответствие типов со знаком и без знака
   String overload operator.vcxproj -> C:\Users\назар\Desktop\OOP C++\Home-work\09.06.2019\Debug\String overload operator.exe
