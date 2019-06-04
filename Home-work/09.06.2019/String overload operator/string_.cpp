@@ -9,36 +9,39 @@ void STRING_::Show()
 	}
 	std::cout << str;
 }
-STRING_ STRING_::operator+(STRING_& other)
+STRING_ STRING_::operator+(const STRING_& other)
 {
-	int newlength = this->length + other.length + 1;
-	char * tmp_str = new char[newlength];
+	STRING_ obj;
+	obj.length = this->length + other.length + 1;
+	obj.str = new char[obj.length];
 	int j = 0;
-	for (int i = 0; i < newlength-1; i++)
+	for (int i = 0; i < obj.length -1; i++)
 	{
 		if (i <= this->length - 1)
 		{
-			tmp_str[i] = this->str[i];
+			obj.str[i] = this->str[i];
 
 		}
 		else
 		{
-			tmp_str[i] = other.str[j];
+			obj.str[i] = other.str[j];
 			j++;
 		}
 	}
-	this->length = newlength;
-	tmp_str[newlength - 1] = '\0';
-	delete[] this->str;
-	this->str = tmp_str;
+	obj.str[obj.length - 1] = '\0';
 	//std::cout << "adres str-> " << str << std::endl;
-	return *this;
+	return obj;
 }
 
-int STRING_::operator=(STRING_& other)
-{
-	return (strcpy_s(this->str, other.length + 1, other.str));
-}
+//int STRING_::operator=(STRING_& other)
+//{
+//	if (this->str == nullptr)
+//	{
+//		this->str = new char[1];
+//	}
+//
+//	return (strcpy_s(this->str, other.length + 1, other.str));
+//}
 
 STRING_ STRING_::operator*(STRING_& other)
 {
