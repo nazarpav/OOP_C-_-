@@ -7,8 +7,8 @@ private:
 public:
 
 	void Show();
-	STRING_ operator+(const STRING_ & other) const;
-	STRING_ operator=(STRING_ & other);
+	STRING_ operator+(const STRING_ & other);
+	STRING_& operator=(STRING_ & other);
 	STRING_ operator*(STRING_ & other);
 	void SetStringFromKeyboard();
 	void SetString(const char*);

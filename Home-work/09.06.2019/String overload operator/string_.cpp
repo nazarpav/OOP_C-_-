@@ -9,32 +9,32 @@ void STRING_::Show()
 	}
 	std::cout << str;
 }
-STRING_ STRING_::operator+(STRING_& other)
-{
 
-	int newlength = this->length + other.length + 1;
-	char * tmp_str = new char[newlength];
+//////////////////////////////////////
+STRING_ STRING_::operator+(const STRING_& other)
+{
+	STRING_ obj;
+	obj.length= this->length + other.length + 1;
+	obj.str = new char[obj.length];
 	int j = 0;
-	for (int i = 0; i < newlength - 1; i++)
+	for (int i = 0; i < obj.length - 1; i++)
 	{
 		if (i <= this->length - 1)
 		{
-			tmp_str[i] = this->str[i];
+			obj.str[i] = this->str[i];
 		}
 		else
 		{
-			tmp_str[i] = other.str[j];
+			obj.str[i] = other.str[j];
 			j++;
 		}
 	}
-	this->length = newlength;
-	tmp_str[newlength - 1] = '\0';
-	delete[] this->str;
-	this->str = tmp_str;
-	return *this;
+	obj.str[obj.length - 1] = '\0';
+	return obj;
 }
+//////////////////////////////////////
 
-STRING_ STRING_::operator=(STRING_& other)
+STRING_& STRING_::operator=(STRING_& other)
 {
 	delete[]this->str;
 	this->length = other.length;
@@ -49,18 +49,20 @@ STRING_ STRING_::operator=(STRING_& other)
 
 STRING_ STRING_::operator*(STRING_& other)
 {
+	STRING_ obj;
 	int j = 0;
-		for (int i = 0; i < this->length; i++)
+	for (int i = 0; i < this->length; i++)
+	{
+		for (int g = 0; g < other.length; g++)
 		{
-				for (int g = 0; g < other.length; g++)
-				{
-					if (this->str[i] == other.str[g])
-					{
-						j++;
-					}
-				}
+			if (this->str[i] == other.str[g])
+			{
+				j++;
+			}
 		}
-	char *buf = new char[j + 1];
+	}
+	obj.length = j + 1;
+	obj.str = new char[j + 1];
 	j = 0;
 	for (int i = 0; i < this->length; i++)
 	{
@@ -68,17 +70,13 @@ STRING_ STRING_::operator*(STRING_& other)
 		{
 			if (this->str[i] == other.str[g])
 			{
-				buf[j] = str[i];
+				obj.str[j] = this->str[i];
 				j++;
 			}
 		}
 	}
-	buf[j] = '\0';
-	j++;
-	delete[] this->str;
-	str = new char[j];
-	str = buf;
-	return *this;
+	obj.str[j] = '\0';
+	return obj;
 }
 void STRING_::SetStringFromKeyboard()
 {
