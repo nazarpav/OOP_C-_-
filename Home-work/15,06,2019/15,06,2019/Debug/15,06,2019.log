@@ -1,0 +1,43 @@
+﻿  main.cpp
+c:\users\назар\desktop\oop c++\home-work\15,06,2019\15,06,2019\main.cpp(6): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+c:\users\назар\desktop\oop c++\home-work\15,06,2019\15,06,2019\var.h(13): error C2679: бинарный "=": не найден оператор, принимающий правый операнд типа "T" (или приемлемое преобразование отсутствует)
+          with
+          [
+              T=VAR<double>
+          ]
+  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\xstring(2501): note: может быть "std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(const _Elem)"
+          with
+          [
+              _Elem=char
+          ]
+  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\xstring(2496): note: или       "std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(const _Elem *const )"
+          with
+          [
+              _Elem=char
+          ]
+  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\xstring(2465): note: или       "std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)"
+  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\xstring(2425): note: или       "std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(std::initializer_list<_Elem>)"
+          with
+          [
+              _Elem=char
+          ]
+  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\xstring(2300): note: или       "std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&) noexcept"
+  c:\users\назар\desktop\oop c++\home-work\15,06,2019\15,06,2019\var.h(13): note: при попытке сопоставить список аргументов "(T_, T)"
+          with
+          [
+              T_=std::string
+          ]
+          and
+          [
+              T=VAR<double>
+          ]
+  c:\users\назар\desktop\oop c++\home-work\15,06,2019\15,06,2019\main.cpp(12): note: выполняется компиляция ссылки на экземпляр шаблон функции "VAR<std::string>::VAR<VAR<double>>(T)"
+          with
+          [
+              T=VAR<double>
+          ]
+  c:\users\назар\desktop\oop c++\home-work\15,06,2019\15,06,2019\main.cpp(12): note: выполняется компиляция ссылки на экземпляр шаблон функции "VAR<std::string>::VAR<VAR<double>>(T)"
+          with
+          [
+              T=VAR<double>
+          ]
