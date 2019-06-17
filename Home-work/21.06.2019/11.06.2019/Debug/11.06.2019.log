@@ -1,0 +1,7 @@
+﻿  main.cpp
+c:\users\назар\desktop\oop c++\home-work\21.06.2019\11.06.2019\smart_template_array.h(165): error C2280: "S_T_A<std::string>::S_T_A(const S_T_A<std::string> &)": предпринята попытка ссылки на удаленную функцию
+  c:\users\назар\desktop\oop c++\home-work\21.06.2019\11.06.2019\smart_template_array.h(29): note: в этом месте создано компилятором: "S_T_A<std::string>::S_T_A"
+  c:\users\назар\desktop\oop c++\home-work\21.06.2019\11.06.2019\smart_template_array.h(29): note: "S_T_A<std::string>::S_T_A(const S_T_A<std::string> &)": функция неявно удалена, так как в "S_T_A<std::string>" содержится определяемый пользователем оператор присваивания перемещением
+  c:\users\назар\desktop\oop c++\home-work\21.06.2019\11.06.2019\smart_template_array.h(150): note: при компиляции функции-члена "<Нет данных>" класса класс <Нет данных>
+  c:\users\назар\desktop\oop c++\home-work\21.06.2019\11.06.2019\main.cpp(23): note: выполняется компиляция ссылки на экземпляр шаблон функции "S_T_A<std::string> S_T_A<std::string>::operator +(const S_T_A<std::string> &)"
+  c:\users\назар\desktop\oop c++\home-work\21.06.2019\11.06.2019\main.cpp(8): note: выполняется компиляция ссылки на экземпляр шаблон класс "S_T_A<std::string>"

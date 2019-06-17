@@ -1,43 +1,13 @@
-﻿  main.cpp
-c:\users\назар\desktop\oop c++\home-work\15,06,2019\15,06,2019\main.cpp(6): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
-c:\users\назар\desktop\oop c++\home-work\15,06,2019\15,06,2019\var.h(13): error C2679: бинарный "=": не найден оператор, принимающий правый операнд типа "T" (или приемлемое преобразование отсутствует)
-          with
-          [
-              T=VAR<double>
-          ]
-  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\xstring(2501): note: может быть "std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(const _Elem)"
-          with
-          [
-              _Elem=char
-          ]
-  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\xstring(2496): note: или       "std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(const _Elem *const )"
-          with
-          [
-              _Elem=char
-          ]
-  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\xstring(2465): note: или       "std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)"
-  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\xstring(2425): note: или       "std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(std::initializer_list<_Elem>)"
-          with
-          [
-              _Elem=char
-          ]
-  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\xstring(2300): note: или       "std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&) noexcept"
-  c:\users\назар\desktop\oop c++\home-work\15,06,2019\15,06,2019\var.h(13): note: при попытке сопоставить список аргументов "(T_, T)"
-          with
-          [
-              T_=std::string
-          ]
-          and
-          [
-              T=VAR<double>
-          ]
-  c:\users\назар\desktop\oop c++\home-work\15,06,2019\15,06,2019\main.cpp(12): note: выполняется компиляция ссылки на экземпляр шаблон функции "VAR<std::string>::VAR<VAR<double>>(T)"
-          with
-          [
-              T=VAR<double>
-          ]
-  c:\users\назар\desktop\oop c++\home-work\15,06,2019\15,06,2019\main.cpp(12): note: выполняется компиляция ссылки на экземпляр шаблон функции "VAR<std::string>::VAR<VAR<double>>(T)"
-          with
-          [
-              T=VAR<double>
-          ]
+﻿  VAR.cpp
+  main.cpp
+c:\users\назар\desktop\oop c++\home-work\15,06,2019\15,06,2019\main.cpp(125): error C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+  d:\windows kits\10\include\10.0.17763.0\ucrt\stdlib.h(1323): note:  см. объявление "itoa"
+c:\users\назар\desktop\oop c++\home-work\15,06,2019\15,06,2019\main.cpp(127): error C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  d:\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note:  см. объявление "sprintf"
+c:\users\назар\desktop\oop c++\home-work\15,06,2019\15,06,2019\main.cpp(130): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note:  см. объявление "strcpy"
+c:\users\назар\desktop\oop c++\home-work\15,06,2019\15,06,2019\main.cpp(507): error C2440: инициализация: невозможно преобразовать "const char [6]" в "var"
+  c:\users\назар\desktop\oop c++\home-work\15,06,2019\15,06,2019\main.cpp(507): note: Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+c:\users\назар\desktop\oop c++\home-work\15,06,2019\15,06,2019\main.cpp(509): error C2440: инициализация: невозможно преобразовать "const char [3]" в "var"
+  c:\users\назар\desktop\oop c++\home-work\15,06,2019\15,06,2019\main.cpp(509): note: Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+  Создание кода...
