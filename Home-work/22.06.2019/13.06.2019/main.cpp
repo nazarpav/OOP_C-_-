@@ -17,6 +17,7 @@ int main()
 	char __1;
 	char __2;
 	char __3;
+	cout << "PRES |\n     V\n";
 	while (true)
 	{
 		_getch();
@@ -30,19 +31,19 @@ int main()
 			}
 			else if (button == 80)
 			{
-				short tmp = rand() % 2 + 1;
+				short tmp = rand() % 6 + 1;
 				for (short i = 0; i < tmp - 1; i++)
 				{
 					_1.get();
 				}
 				__1 = _1.get();
-				tmp = rand() % 2 + 1;
+				tmp = rand() % 6 + 1;
 				for (short i = 0; i < tmp - 1; i++)
 				{
 					_2.get();
 				}
 				__2 = _2.get();
-				tmp = rand() % 2 + 1;
+				tmp = rand() % 6 + 1;
 				for (short i = 0; i < tmp - 1; i++)
 				{
 					_3.get();

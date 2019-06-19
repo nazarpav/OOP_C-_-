@@ -7,8 +7,8 @@ class S_T_A
 {
 public:
 	S_T_A(T elem, int size);
-	S_T_A(const T& other);
-	S_T_A(const T&& other);
+	S_T_A(const S_T_A<T>& other);
+	S_T_A(S_T_A<T>&& other);
 	~S_T_A();
 	void add_elem(T elem);
 	void insert_elem(T elem, int index);
@@ -42,7 +42,7 @@ S_T_A<T>::S_T_A(T elem,int size)
 }
 
 template<typename T>
-S_T_A<T>::S_T_A(const  T& other)
+S_T_A<T>::S_T_A(const  S_T_A<T>& other)
 {
 	this->size = other.size;
 	this->max_size = other.max_size;
@@ -53,7 +53,7 @@ S_T_A<T>::S_T_A(const  T& other)
 }
 
 template<typename T>
-S_T_A<T>::S_T_A(const T&& other)
+S_T_A<T>::S_T_A(S_T_A<T>&& other)
 {
 	this->size = other.size;
 	other.size = 0;
@@ -146,23 +146,24 @@ template<typename T>
 }
 
  template<typename T>
- S_T_A<T> S_T_A<T>::operator+(const S_T_A<T> & other)
+ S_T_A<T>  S_T_A<T>::operator+(const S_T_A<T> & other)
  {
 	 int j = 0;
-	 S_T_A<T> obj(this->arr[0], this->size + other.size);
+	 S_T_A<T> obj_tmp(other.arr[0], this->size + other.size);
 	 j++;
-	 obj.size = this->size + other.size;
+	 obj_tmp.size = this->size + other.size;
+	 obj_tmp.max_size = size + obj_tmp.GROW;
 	 for (int i = 0; i < this->size; i++)
 	 {
-		 obj.arr[j] = this->arr[i];
+		 obj_tmp.arr[j] = this->arr[i];
 		 j++;
 	 }
 	 for (int i = 0; i < other.size; i++)
 	 {
-		 obj.arr[j] = other.arr[i];
+		 obj_tmp.arr[j] = other.arr[i];
 		 j++;
 	 }
-	 return S_T_A<T>(obj);
+	 return obj_tmp;
  }
 
  template<typename T>
