@@ -6,25 +6,26 @@ int main()
 {
 	List obj;
 
-	obj.AddToBegin(1);
-	obj.AddToBegin(2);
-	obj.AddToBegin(3);
-	obj.AddToBegin(4);
-	obj.AddToBegin(5);
-	obj.AddToBegin(6);
-	obj.AddToBegin(7);
-	obj.AddToBegin(8);
-	obj.AddToBegin(9);
-	obj.AddToBegin(10);
+	obj.AddToEnd(1);
+	obj.AddToEnd(2);
+	obj.AddToEnd(3);
+	obj.AddToEnd(4);
+	obj.AddToEnd(5);
+	obj.AddToEnd(6);
+	obj.AddToEnd(7);
+	obj.AddToEnd(2);
+	obj.AddToEnd(8);
+	obj.AddToEnd(9);
+	obj.AddToEnd(10);
 	obj.ShowList();
 	cout << "\n";
 
-	obj.add_elem_ind(55, 2);
-	obj.add_elem_ind(55, 2);
-	obj.del_elem_ind(2);
-	obj.del_elem_ind(2);
-	obj.del_elem_ind(0);
-
+	/*cout<<obj.search_element(44);
+	cout<<obj.search_element(4);
+	cout<<obj.search_element(4);*/
+	cout << obj.Replace_element(2,55);
+	cout << obj.Replace_element(2,55);
+	cout << obj.Replace_element(2,55);
 
 	//obj.DeleteHead();
 	//obj.DeleteHead();

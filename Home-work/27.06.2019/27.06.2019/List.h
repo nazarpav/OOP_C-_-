@@ -31,6 +31,12 @@ public:
 	// Добавлення елемента на початок списку
 	void AddToBegin(int data);
 
+	//replace element
+	int Replace_element(int Replaceable_element, int exchangeable);
+
+	//search element
+	int search_element(int elem);
+
 	// Видалення голови (першого елемента)
 	void DeleteHead();
 

@@ -36,7 +36,40 @@ void List::AddToBegin(int data)
 	}
 	size++;
 }
-
+int List::Replace_element(int Replaceable_element/*елемент для заміни*/,int exchangeable/*новий елемент*/)
+{
+	Element * temp = head;
+	int counter = 0;
+	for (int i = 0; temp->next != nullptr; i++)
+	{
+		if (temp->num == Replaceable_element)
+		{
+			counter++;
+			temp->num = exchangeable;
+		}
+		temp = temp->next;
+	}
+	if(counter==0)
+	return -1;
+	return counter;
+	/*temp = nullptr;
+	newElement = nullptr;*/
+}
+int List::search_element(int elem)
+{
+	Element * temp = head;
+	for (int i = 0; temp->next!=nullptr; i++)
+	{
+		if (temp->num==elem)
+		{
+			return i;
+		}
+		temp = temp->next;
+	}
+	return NULL;
+	/*temp = nullptr;
+	newElement = nullptr;*/
+}
 void List::DeleteHead()
 {
 	if (this->size != 0)
