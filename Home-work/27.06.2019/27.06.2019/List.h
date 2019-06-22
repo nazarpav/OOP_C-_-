@@ -36,6 +36,8 @@ public:
 
 	void Delete_tail();
 
+	void del_elem_ind(int ind);
+
 	void add_elem_ind(int data, int ind);
 
 	// Показ всіх елементів

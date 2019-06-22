@@ -59,19 +59,54 @@ void List::Delete_tail()
 		delete tail->next;
 		delete tail;
 		temp->next = nullptr;
-		tail = tail;
+		tail = temp;
 		temp = nullptr;
 	size--;
 	}
 }
+void List::del_elem_ind(int ind)
+{
+	if (ind<0 || ind>size - 1)
+	{
+		return;
+	}
+	Element * temp = head;
+	Element * temp2 = head;
+	if (ind == 0)
+	{
+		this->DeleteHead();
+		return;
+	}
+	else if (ind == size - 1)
+	{
+		this->Delete_tail();
+		return;
+	}
+	for (int i = 0; true; i++)
+	{
+		if (i == ind - 1)
+		{
+			temp2 = temp->next;
+			temp->next=temp->next->next;
+			delete temp2;
+			break;
+		}
+		temp = temp->next;
+	}
+	/*temp = nullptr;
+	newElement = nullptr;*/
+	size--;
+}
 void List::add_elem_ind(int data,int ind)
 {
+	if (ind<0 || ind>size - 1)
+	{
+		return;
+	}
 	Element * newElement = new Element;
 	newElement->num = data;
 	newElement->next = nullptr;
 	Element * temp = head;
-	cout << temp<<" _ " << head<<endl;
-	size++;
 	if (ind == 0)
 	{
 		AddToBegin(data);
@@ -86,14 +121,15 @@ void List::add_elem_ind(int data,int ind)
 	{
 		if (i == ind-1)
 		{
-			newElement->next = temp->next->next;
+			newElement->next = temp->next;
 			temp->next = newElement;
 			break;
 		}
 		temp = temp->next;
-		temp = nullptr;
-		cout << temp << " _ " << head << endl;
 	}
+		/*temp = nullptr;
+		newElement = nullptr;*/
+	size++;
 }
 void List::ShowList() const
 {
@@ -103,19 +139,10 @@ void List::ShowList() const
 		return;
 	}
 
-	/*Element * current = head;
-	do
-	{
-		cout << "Element: " << current->num << endl;
-		current = current->next;
-	} while (current->next != nullptr);*/
-
 	Element * current = head;
 	while (current != nullptr)
 	{
 		cout << "Element: " << current->num << endl;
 		current = current->next;
 	}
-	//cout << "Element: " << tail->num << endl;
-	cout << "Element*: " << tail->next << endl;
 }

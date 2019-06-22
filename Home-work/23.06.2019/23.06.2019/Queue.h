@@ -13,6 +13,7 @@ class Queue
 	int size;
 
 public:
+	friend void print(Queue& q,int i);
 	// Конструктор
 	Queue(int maxSize);
 	Queue(const Queue&);
