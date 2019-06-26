@@ -31,7 +31,7 @@ int main()
 			}
 			else if (button == 80)
 			{
-				short tmp = rand() % 6 + 1;
+				short tmp = rand() % 3 + 1;
 				for (short i = 0; i < tmp - 1; i++)
 				{
 					_1.get();

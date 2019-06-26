@@ -1,0 +1,5 @@
+﻿  main.cpp
+main.obj : error LNK2019: ёё√ыър эр эхЁрчЁх°хээ√щ тэх°эшщ ёшьтюы "public: __thiscall Passport::~Passport(void)" (??1Passport@@QAE@XZ) т ЇєэъЎшш "public: __thiscall ForeignPassport::~ForeignPassport(void)" (??1ForeignPassport@@QAE@XZ)
+main.obj : error LNK2019: ёё√ыър эр эхЁрчЁх°хээ√щ тэх°эшщ ёшьтюы "public: __thiscall ForeignPassport::ForeignPassport(short,bool,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,short)" (??0ForeignPassport@@QAE@F_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@111F@Z) т ЇєэъЎшш _main
+main.obj : error LNK2019: ёё√ыър эр эхЁрчЁх°хээ√щ тэх°эшщ ёшьтюы "public: void __thiscall ForeignPassport::show(void)" (?show@ForeignPassport@@QAEXXZ) т ЇєэъЎшш _main
+C:\Users\эрчрЁ\Desktop\OOP C++\Class-work\25.06.2019\Debug\25.06.2019.exe : fatal error LNK1120: эхЁрчЁх°хээ√ї тэх°эшї ¤ыхьхэЄют: 3

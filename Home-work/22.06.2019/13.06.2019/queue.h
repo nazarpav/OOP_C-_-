@@ -21,7 +21,7 @@ game::game()
 	this->_queue_.push('@');
 	this->_queue_.push('#');
 	this->_queue_.push('$');
-	this->_queue_.push('%');
+	/*this->_queue_.push('%');
 	this->_queue_.push('&');
-	this->_queue_.push('*');
+	this->_queue_.push('*');*/
 }
