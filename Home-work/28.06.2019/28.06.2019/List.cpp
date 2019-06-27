@@ -11,14 +11,22 @@ void List::AddTail(int data)
 	newElement->prev = nullptr;
 
 	if (head == nullptr)
-		head = tail = newElement;
+		this->head = this->tail = newElement;
 	else
 	{
-		tail->next = newElement;
+		this->tail->next = newElement;
 		newElement->prev = tail;
-		tail = newElement;
+		this->tail = newElement;
 	}
 	++size;
+}
+List List::operator+(const List &other)const
+{
+	List tmp1(*this);
+	List tmp2(other);
+	tmp1.tail->next = tmp2.head;
+	tmp2.head->prev = tmp1.tail;
+	return tmp1;
 }
 List::List(const List& other)
 {
@@ -95,11 +103,11 @@ void List::Add(int pos, int data)
 	++size;
 }
 
-void List::delete_list()
+void List::Delete_list(List &obj)
 {
 	while (size!=0)
 	{
-		DeleteHead();
+		obj.DeleteHead();
 	}
 }
 
@@ -120,12 +128,26 @@ void List::DeleteHead()
 	}
 }
 
-List List::operator=(const List & other)
+List List::operator-()
+{
+	List tmp_(*this);
+	Element *tmp = tmp_.head;
+	Element *tmp2 = this->tail;
+	for (int i = 0; tmp!=nullptr; i++)
+	{
+		tmp->num = tmp2->num;
+		tmp = tmp->next;
+		tmp2 = tmp2->prev;
+	}
+	return tmp_;
+}
+
+List& List::operator=(const List & other)
 {
 	Element *tmp = this->head;
 	if (!this->IsEmpty())
 	{
-		this->delete_list();
+		this->Delete_list(*this);
 	}
 	this->size = other.size;
 	tmp = other.head;
@@ -137,7 +159,7 @@ List List::operator=(const List & other)
 	return *this;
 }
 
-List List::operator=(List && other)
+List& List::operator=(List && other)
 {
 	this->size = other.size;
 	this->head = other.head;
@@ -155,22 +177,9 @@ void List::ShowList() const
 		cout << "List is empty!\n";
 		return;
 	}
-
-	/*Element * current = head;
-	do
-	{
-		cout << "Element: " << current->num << endl;
-		current = current->next;
-	} while (current->next != nullptr);*/
 	for (Element * item = this->head; item != nullptr; item = item->next)
 	{
 		cout << "Element: " << item->num << endl;
 	}
 
-	/*Element * current = head;
-	while (current != nullptr)
-	{
-		cout << "Element: " << current->num << endl;
-		current = current->next;
-	}*/
 }

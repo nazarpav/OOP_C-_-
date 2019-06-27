@@ -30,6 +30,7 @@ public:
 
 	// Добавлення елемента вкінець списку
 	void AddTail(int data);
+	List operator+(const List & other)const;
 	List(const List & other);
 	List(List && other);
 	// Добавлення елемента на початок списку
@@ -37,11 +38,12 @@ public:
 
 	// Добавлення елемента в позицію
 	void Add(int pos, int data);
-	void delete_list();
+	void Delete_list(List &obj);
 	// Видалення голови (першого елемента)
 	void DeleteHead();
-	List operator=(const List&other);
-	List operator=(List&&other);
+	List operator-();
+	List& operator=(const List&other);
+	List& operator=(List&&other);
 	// Показ всіх елементів
 	void ShowList() const;
 };
