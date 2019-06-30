@@ -26,9 +26,10 @@ private:
 
 	Node * root;
 
-	void Add(string Car_number, Node*& node, string data = " ")////////////////////////////////////////////////////////////////////////////<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	void Add(string Car_number, Node*& node, string data = " ")
 	{
-		Find(Car_number).Receipts.push_back(data);////////////////////////////////////////////////////////////////////////////<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+		if(node!=nullptr)
+			Find(Car_number).Receipts.push_back(data);
 		Add__(Car_number, node, data);
 	}
 
@@ -47,7 +48,7 @@ private:
 		if (node != nullptr)
 		{
 			PrintLKP(node->left);
-			cout << "Car number : " << node->Car_number << endl;////////////////////////////////////////////////////////////////////////////<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+			cout << "Car number : " << node->Car_number << endl;
 			Print_(node);
 			PrintLKP(node->right);
 		}
@@ -97,15 +98,14 @@ private:
 	}
 	Node Find(string Car_number_, const Node* node) const
 	{
-		if (node != nullptr)
-		{
-			if (node->Car_number == Car_number_)
-				return *node;
-			else if (Car_number_ > node->Car_number)
-				return Find(Car_number_, node->right);
-			else
-				return Find(Car_number_, node->left);
-		}
+		if (node == nullptr)
+			return *node;
+		if (node->Car_number == Car_number_)
+			return *node;
+		else if (Car_number_ > node->Car_number)
+			return Find(Car_number_, node->right);
+		else
+			return Find(Car_number_, node->left);
 	}
 public:
 	Tree()

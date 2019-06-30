@@ -1,4 +1,1 @@
-﻿  main.cpp
-c:\users\назар\desktop\oop c++\home-work\30.06.2019\30.06.2019\tree.h(93): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\назар\desktop\oop c++\home-work\30.06.2019\30.06.2019\tree.h(109): warning C4715: Tree::Find: значение возвращается не при всех путях выполнения
-  30.06.2019.vcxproj -> C:\Users\назар\Desktop\OOP C++\Home-work\30.06.2019\Debug\30.06.2019.exe
+﻿  30.06.2019.vcxproj -> C:\Users\назар\Desktop\OOP C++\Home-work\30.06.2019\Debug\30.06.2019.exe
