@@ -12,8 +12,11 @@ int main()
 	tree.Add("FG2342DE", "qwee e\nw qeq ewq e\n\nq ");
 	tree.Add("IO2342DE", "qwee \new qeq e\nwq eq ");
 
-
-	tree.PrintSort();
+	//tree.PrintLKP();
+	//tree.PrintSort();
+	//cout<<tree.Find("SA2342DE");
+	//cout<<tree.Find("DA2342DE");
+	//tree.Print_by_diapason("DA2342DE", "CL2342DE");
 	cout << "-------------------\n";
 
 

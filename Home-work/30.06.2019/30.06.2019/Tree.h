@@ -28,8 +28,9 @@ private:
 
 	void Add(string Car_number, Node*& node, string data = " ")
 	{
-		if(node!=nullptr)
-			Find(Car_number).Receipts.push_back(data);
+		Node* tmp(Find(Car_number));
+		if(tmp!=nullptr)
+			node->Receipts.push_back(data);
 		Add__(Car_number, node, data);
 	}
 
@@ -91,21 +92,35 @@ private:
 	}
 	void Print_(const Node* node) const
 	{
+		cout << "Car number: " << node->Car_number << endl;
 		for (int i = 0; i < node->Receipts.size(); i++)
 		{
 			cout << "Receipts : " << node->Receipts[i] << endl;////////////////////////////////////////////////////////////////////////////<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 		}
 	}
-	Node Find(string Car_number_, const Node* node) const
+	Node* Find(string Car_number_, Node* node) const
 	{
 		if (node == nullptr)
-			return *node;
+			return node;
 		if (node->Car_number == Car_number_)
-			return *node;
+			return node;
 		else if (Car_number_ > node->Car_number)
 			return Find(Car_number_, node->right);
 		else
 			return Find(Car_number_, node->left);
+	}
+	void Print_by_diapason_(const Node* node, const string begin, const string end) const
+	{
+		if (node != nullptr)
+		{
+			PrintLKP(node->left);
+			if (node->Car_number > begin&&node->Car_number < end)
+			{
+				cout << "Car number : " << node->Car_number << endl;////////////////////////////////////////////////////////////////////////////<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+				Print_(node);
+			}
+			PrintLKP(node->right);
+		}
 	}
 public:
 	Tree()
@@ -140,28 +155,19 @@ public:
 		desc ? PrintPKL() : PrintLKP();
 	}
 
-	void Print_by_diapason(const Node* node,const string begin, const string end) const
+	void Print_by_diapason(const string begin, const string end) const
 	{
-		if (node != nullptr)
-		{
-			PrintLKP(node->left);
-			if (node->Car_number > begin&&node->Car_number < end)
-			{
-			cout << "Car number : " << node->Car_number << endl;////////////////////////////////////////////////////////////////////////////<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-			Print_(node);
-			}
-			PrintLKP(node->right);
-		}
+		Print_by_diapason_(root, begin, end);
 	}
 
-	Node Find(string number)
+	Node* Find(string number)
 	{
 		return Find(number, root);
 	}
 	void Print_by_number(const string number)
 	{
 		Node* node;
-		*node=Find(number);
+		node=Find(number);
 		cout << "Car number : " << node->Car_number << endl;////////////////////////////////////////////////////////////////////////////<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 		Print_(node);
 		PrintLKP(node->right);
