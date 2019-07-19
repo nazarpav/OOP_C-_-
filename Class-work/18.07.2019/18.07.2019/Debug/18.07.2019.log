@@ -1,0 +1,7 @@
+﻿  CardDeck.cpp
+e:\oop c++\class-work\18.07.2019\18.07.2019\carddeck.cpp(15): warning C4101: suit_: неиспользованная локальная переменная
+e:\oop c++\class-work\18.07.2019\18.07.2019\carddeck.cpp(14): warning C4101: card_: неиспользованная локальная переменная
+  main.cpp
+  Создание кода...
+main.obj : error LNK2005: "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl operator<<(class std::basic_ostream<char,struct std::char_traits<char> > &,class Card const &)" (??6@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AAV01@ABVCard@@@Z) уже определен в CardDeck.obj
+E:\OOP C++\Class-work\18.07.2019\Debug\18.07.2019.exe : fatal error LNK1169: обнаружен многократно определенный символ - один или более

@@ -27,14 +27,9 @@ int main()
 	program obj("data.txt");
 	obj.menu();
 	}
-	catch (...)
+	catch (char eror)
 	{
-		cout << "Eror";
+		cout << eror << endl;
 	}
-	
-
-
-
-	system("pause");
 	return 0;
 }

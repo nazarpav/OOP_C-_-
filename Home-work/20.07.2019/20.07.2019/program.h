@@ -14,9 +14,15 @@ class program
 	int quantity_sentence;
 public:
 	
-	void Open_file()
+	void Open_file(string path = "data.txt")
 	{
-		if (!this->file.eof())
+		this->path = path;
+		file.open(this->path, ios::in || ios::out || ios::trunc);
+		if (!(this->file.is_open()))
+		{
+			throw "Eror open";
+		}
+		if (this->file.eof())
 			throw"file empty!";
 		this->str += this->file.get();
 		if (this->str[this->str.length() - 1] == '!' || this->str[str.length() - 1] == '?' || this->str[str.length() - 1] == '.')
@@ -41,22 +47,22 @@ public:
 	}
 	int Find_your_string(string str_finded)
 	{
-		int tmp = 0;
+		unsigned long long int tmp = 0;
 		int counter = 0;
 		while(tmp!=str.npos)
 		{
-		tmp=str.find(str_finded,tmp);
-		counter++;
+			tmp = str.find(str_finded, tmp) + str_finded.length();
+			counter++;
 		}
 		return counter;
 	}
 	long long int Replace_character(char character=NULL)
 	{
 		long long int counter = 0;
-		int tmp = 0;
+		unsigned long long int tmp = 0;
 		while (tmp != str.npos)
 		{
-			tmp = str.find(character, tmp);
+			tmp = str.find(character, tmp) + 1;
 			str[tmp] = character;
 			counter++;
 		}
@@ -65,10 +71,10 @@ public:
 	int Replace_string(string str_paste)
 	{
 		int counter = 0;
-		int tmp = 0;
+		unsigned long long int tmp = 0;
 		while (tmp != str.npos)
 		{
-			tmp = str.find(str_paste, tmp);
+			tmp = str.find(str_paste, tmp) + str_paste.length();
 			str.erase(tmp, str_paste.length());
 			str.insert(tmp, str_paste);
 			counter++;
@@ -88,49 +94,56 @@ public:
 	void menu()
 	{
 	short choise = 0;
+	string tmp;
+	char char_;
 		while (true)
 		{
-			cout << "1.file to monitor\n2.find your string\n3.replace character\n4.replace string\n5.revers data in file\n6.determination quantity sentence in file\n7.determination quantity string in file8.determination quantity word in file";
+			system("cls");
+			cout << "1.file to monitor\n2.find your string\n3.replace character\n4.replace string\n5.revers data in file\n6.determination quantity sentence in file\n7.determination quantity string in file\n8.determination quantity word in file\n: ";
 			cin >> choise;
 			switch (choise)
 			{
 			case 1:
 				this->File_to_monitor();
+				cout << endl;
+				system("pause");
 				break;
 			case 2:
-				this->Find_your_string("123");
+				cin >> tmp;
+				this->Find_your_string(tmp);
 				break;
 			case 3:
-				this->Replace_character(' ');
+				cin >> char_;
+				this->Replace_character(char_);
 				break;
 			case 4:
-				this->Replace_string("123");
+				cin >> tmp;
+				this->Replace_string(tmp);
 				break;
 			case 5:
 				this->revers_data_in_file();
 				break;
 			case 6:
-				cout << this->quantity_string;
+				cout << "Quantity string: " << this->quantity_string << endl;
+				system("pause");
 				break;
 			case 7:
-				cout << this->quantity_sentence;
+				cout << "Quantity sentence string: " << this->quantity_sentence << endl;
+				system("pause");
 				break;
 			case 8:
-				cout << this->quantity_word;
+				cout << "Quantity word: " << this->quantity_word << endl;
+				system("pause");
 				break;
 			default:
+				return;
 				break;
 			}
 		}
 	}
 	program(string path="data.txt")
 	{
-		file.open(this->path, ios::in || ios::out || ios::trunc);
-		if (!(this->file.is_open()))
-		{
-			throw "Eror open";
-		}
-		this->Open_file();
+		this->Open_file(path);
 	}
 	~program()
 	{
