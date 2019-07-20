@@ -36,10 +36,11 @@ public:
 				this->quantity_sentence++;
 			if (this->str[this->str.length() - 1] == '\n' || this->str[this->str.length() - 1] == 13)
 				this->quantity_string++;
-			if (this->str[this->str.length() - 2] == ' ' && this->str[this->str.length() - 1] != ' ')
+			if ((this->str[this->str.length() - 1] == ' '|| (this->str[this->str.length() - 1] == '\n' || this->str[this->str.length() - 1] == 13)) && this->str[this->str.length() - 2] != ' ')
 				this->quantity_word++;
 		}
 		this->quantity_word++;
+		this->quantity_string++;
 	}
 	void File_to_monitor()
 	{
@@ -49,34 +50,50 @@ public:
 	{
 		unsigned long long int tmp = 0;
 		int counter = 0;
-		while(tmp!=str.npos)
+		while(true)
 		{
-			tmp = str.find(str_finded, tmp) + str_finded.length();
+			tmp = str.find(str_finded, tmp);
+			if (tmp == 0||tmp == str.npos)
+				break;
+			else
+				tmp += str_finded.length();
 			counter++;
 		}
 		return counter;
 	}
-	long long int Replace_character(char character=NULL)
+	long long int Replace_character(char character=NULL, char character2 = NULL)
 	{
 		long long int counter = 0;
 		unsigned long long int tmp = 0;
 		while (tmp != str.npos)
 		{
-			tmp = str.find(character, tmp) + 1;
-			str[tmp] = character;
+			tmp = str.find(character, tmp);
+			if (tmp == 0 || tmp == str.npos)
+				break;
+			else
+			{
+				str[tmp] = character2;
+				tmp++;
+			}
 			counter++;
 		}
 		return counter;
 	}
-	int Replace_string(string str_paste)
+	int Replace_string(string str_1, string str_2)
 	{
 		int counter = 0;
 		unsigned long long int tmp = 0;
 		while (tmp != str.npos)
 		{
-			tmp = str.find(str_paste, tmp) + str_paste.length();
-			str.erase(tmp, str_paste.length());
-			str.insert(tmp, str_paste);
+			tmp = str.find(str_1, tmp);
+			if (tmp == 0 || tmp == str.npos)
+				break;
+			else
+			{
+				str.erase(tmp,str_2.length());
+				str.insert(tmp,str_2);
+				tmp++;
+			}
 			counter++;
 		}
 		return counter;
@@ -94,12 +111,14 @@ public:
 	void menu()
 	{
 	short choise = 0;
-	string tmp;
-	char char_;
+	string tmp1;
+	string tmp2;
+	char char_1;
+	char char_2;
 		while (true)
 		{
 			system("cls");
-			cout << "1.file to monitor\n2.find your string\n3.replace character\n4.replace string\n5.revers data in file\n6.determination quantity sentence in file\n7.determination quantity string in file\n8.determination quantity word in file\n: ";
+			cout << "1.file to monitor\n2.find your string\n3.replace character\n4.replace string\n5.revers data in file\n6.determination quantity string in file\n7.determination quantity sentence in file\n8.determination quantity word in file\n0.Exit\n: ";
 			cin >> choise;
 			switch (choise)
 			{
@@ -109,16 +128,21 @@ public:
 				system("pause");
 				break;
 			case 2:
-				cin >> tmp;
-				this->Find_your_string(tmp);
+				cin >> tmp1;
+				cout<<"Strings of this type found: "<<this->Find_your_string(tmp1)<<endl;
+				system("pause");
 				break;
 			case 3:
-				cin >> char_;
-				this->Replace_character(char_);
+				cin >> char_1;
+				cin >> char_2;
+				cout << "Counter replced character: " << this->Replace_character(char_1, char_2) << endl;
+				system("pause");
 				break;
 			case 4:
-				cin >> tmp;
-				this->Replace_string(tmp);
+				cin >> tmp1;
+				cin >> tmp2;
+				cout << "Counter replced string: " << this->Replace_string(tmp1, tmp2) << endl;
+				system("pause");
 				break;
 			case 5:
 				this->revers_data_in_file();
@@ -135,7 +159,7 @@ public:
 				cout << "Quantity word: " << this->quantity_word << endl;
 				system("pause");
 				break;
-			default:
+			case 0:
 				return;
 				break;
 			}

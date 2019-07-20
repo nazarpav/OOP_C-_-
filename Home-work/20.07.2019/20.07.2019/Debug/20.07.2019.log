@@ -1,8 +1,8 @@
 ﻿  main.cpp
-e:\oop c++\home-work\20.07.2019\20.07.2019\program.h(54): warning C4244: аргумент: преобразование "unsigned __int64" в "const unsigned int", возможна потеря данных
-e:\oop c++\home-work\20.07.2019\20.07.2019\program.h(65): warning C4244: аргумент: преобразование "unsigned __int64" в "const unsigned int", возможна потеря данных
-e:\oop c++\home-work\20.07.2019\20.07.2019\program.h(66): warning C4244: аргумент: преобразование "unsigned __int64" в "const unsigned int", возможна потеря данных
-e:\oop c++\home-work\20.07.2019\20.07.2019\program.h(77): warning C4244: аргумент: преобразование "unsigned __int64" в "const unsigned int", возможна потеря данных
-e:\oop c++\home-work\20.07.2019\20.07.2019\program.h(78): warning C4244: аргумент: преобразование "unsigned __int64" в "const unsigned int", возможна потеря данных
-e:\oop c++\home-work\20.07.2019\20.07.2019\program.h(79): warning C4244: аргумент: преобразование "unsigned __int64" в "const unsigned int", возможна потеря данных
+e:\oop c++\home-work\20.07.2019\20.07.2019\program.h(55): warning C4244: аргумент: преобразование "unsigned __int64" в "const unsigned int", возможна потеря данных
+e:\oop c++\home-work\20.07.2019\20.07.2019\program.h(70): warning C4244: аргумент: преобразование "unsigned __int64" в "const unsigned int", возможна потеря данных
+e:\oop c++\home-work\20.07.2019\20.07.2019\program.h(75): warning C4244: аргумент: преобразование "unsigned __int64" в "const unsigned int", возможна потеря данных
+e:\oop c++\home-work\20.07.2019\20.07.2019\program.h(88): warning C4244: аргумент: преобразование "unsigned __int64" в "const unsigned int", возможна потеря данных
+e:\oop c++\home-work\20.07.2019\20.07.2019\program.h(93): warning C4244: аргумент: преобразование "unsigned __int64" в "const unsigned int", возможна потеря данных
+e:\oop c++\home-work\20.07.2019\20.07.2019\program.h(94): warning C4244: аргумент: преобразование "unsigned __int64" в "const unsigned int", возможна потеря данных
   20.07.2019.vcxproj -> E:\OOP C++\Home-work\20.07.2019\Debug\20.07.2019.exe
