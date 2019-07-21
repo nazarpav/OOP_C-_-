@@ -71,6 +71,20 @@ public:
 	}
 	void Sort_trains()
 	{
+		//for (int i = 1; i < Trains.size(); ++i)
+		//{
+		//	for (int r = 0; r < Trains.size() - i; r++)
+		//	{
+		//		if (Trains[r] < Trains[r + 1])
+		//		{
+		//			// Обмен местами
+		//			Train temp = this->Trains[r];
+		//			this->Trains[r] = this->Trains[r + 1];
+		//			this->Trains[r + 1] = temp;
+		//		}
+		//	}
+		//}
+		//	this->Show();
 		Train temp; // временная переменная для хранения значения элемента сортируемого массива
 			int item=0; // индекс предыдущего элемента
 		for (int counter = 1; counter < Trains.size(); counter++)
