@@ -1,2 +1,0 @@
-ЩЕ не дороблена домашка, треба добавити компютерну логіку і гарний рендер поля, я дороблю просто зараз часу не вистачає.
-Domashka ne doroblena chasu ne vistachaye sche dekilika momentiv i vse bude gotove.

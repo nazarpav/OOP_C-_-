@@ -144,40 +144,87 @@ void Game::Copm_logic(short true_sign,short false_sign)
 	// '-' collums
 	// '+' rows
 	short max_quantity_sing_ind = 0;
-	short counter_sing_max = -1;
-	short counter_sing = 0;
+	short counter_sign_max = -1;
+	short counter_sign = 0;
+	short counter_sing_2 = 0;
 	for (short i = 0; i < size_map; i++)
 	{
-		counter_sing = 0;
+		counter_sign = 0;
 		if (game_map[i][0] == false_sign)
 			continue;
 		for (short j = 0; j < size_map; j++)
 		{
-			if (game_map[i][0] == game_map[i][j]&&game_map[i][j] == true_sign)
-				counter_sing++;
+			if (game_map[i][j] == false_sign)
+			{
+				counter_sign = 0;
+				break;
+			}
+			if (game_map[i][0] == game_map[i][j])
+				counter_sign++;
 		}
-		if (counter_sing > counter_sing_max)
+		if (counter_sign > counter_sign_max)
 		{
 			max_quantity_sing_ind = i;
-			counter_sing_max = counter_sing;
+			counter_sign_max = counter_sign;
 		}
 	}
 	for (short i = 0; i < size_map; i++)
 	{
-		counter_sing = 0;
+		counter_sign = 0;
 		if (game_map[0][i] == false_sign)
 			continue;
 		for (short j = 0; j < size_map; j++)
 		{
-			if (game_map[0][i] == game_map[j][i] && game_map[j][i] == true_sign)
-				counter_sing++;
+			if (game_map[j][i] == false_sign)
+			{
+				counter_sign = 0;
+				break;
+			}
+			if (game_map[0][i] == game_map[j][i])
+				counter_sign++;
 		}
-		if (counter_sing > counter_sing_max)
+		if (counter_sign > counter_sign_max)
 		{
 			max_quantity_sing_ind = i - (i * 2);
-			counter_sing_max = counter_sing;
+			counter_sign_max = counter_sign;
 		}
 	}
+
+	/*short it_1 = 0, it_2 = 0;
+	for (short i = 1; i < size_map&&game_map[0][0] != -1; i++)
+	{
+		if (game_map[i][i] == -1)
+		{
+			win = false;
+			break;
+		}
+		if (game_map[0][0] == game_map[i][i])
+			win = true;
+		else
+		{
+			win = false;
+			break;
+		}
+	}
+	if (win)
+		return win;
+	it_1 = size_map - 1;
+	it_2 = 0;
+	for (short i = 0; i < size_map&&game_map[0][size_map - 1] != -1; i++)
+	{
+		if (game_map[it_1][it_2] == -1)
+		{
+			win = false;
+			break;
+		}
+		if (game_map[size_map - 1][0] == game_map[it_1--][it_1++])
+			win = true;
+		else
+		{
+			win = false;
+			break;
+		}
+	}*/
 	if(max_quantity_sing_ind<0)
 	{
 		max_quantity_sing_ind = abs(max_quantity_sing_ind);
@@ -201,7 +248,10 @@ void Game::Copm_logic(short true_sign,short false_sign)
 			}
 		}
 	}
+	cout << "? I dont know!!! " << endl;
+	Sleep(2000);
 }
+
 bool Game::Start_game_()
 {
 	const short SIZE_Select_type_game = 3;
@@ -305,6 +355,16 @@ bool Game::Game_player_and_player(const string name_1, const string name_2)
 	return false;
 }
 
+void Sleep_()
+{
+	for (short i = 0; i < 3; i++)
+	{
+		Sleep(200);
+		cout << ".";
+	}
+	cout << endl;
+}
+
 bool Game::Game_copm_and_comp()
 {
 	system("cls");
@@ -317,7 +377,10 @@ bool Game::Game_copm_and_comp()
 	}
 	while (true)
 	{
+		Sleep_();
 		Copm_logic(Game::type::CROSS, Game::type::ZERO);
+		system("cls");
+		Render_map();
 		if (Check_win())
 		{
 			system("cls");
@@ -326,7 +389,10 @@ bool Game::Game_copm_and_comp()
 			system("pause");
 			break;
 		}
+		Sleep_();
 		Copm_logic(Game::type::ZERO, Game::type::CROSS);
+		system("cls");
+		Render_map();
 		if (Check_win())
 		{
 			system("cls");
@@ -361,6 +427,7 @@ bool Game::Game_player_and_comp(const string name)
 			break;
 		}
 		Player_move(name, Game::type::ZERO);
+
 		if (Check_win())
 		{
 			system("cls");
