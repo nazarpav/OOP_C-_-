@@ -359,7 +359,7 @@ void Sleep_()
 {
 	for (short i = 0; i < 3; i++)
 	{
-		Sleep(200);
+		Sleep(20);
 		cout << ".";
 	}
 	cout << endl;
