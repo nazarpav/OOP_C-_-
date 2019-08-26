@@ -121,7 +121,7 @@ class Tree_expression
 	{
 		for (int i = 0; i < ex.length() - 1; i++)
 		{
-			if (ex[i] != '+' && ex[i] != '-' && ex[i] != '*' && ex[i] != '/' && isdigit(ex[i]) == false && ex[i] != '(' && ex[i] != ')')
+			if (ex[i] != '+' && ex[i] != '-' && ex[i] != '*' && ex[i] != '/' && isdigit(ex[i]) == false && ex[i] != '(' && ex[i] != ')'&& ex[i] != ' ')
 			{
 				return false;
 			}
