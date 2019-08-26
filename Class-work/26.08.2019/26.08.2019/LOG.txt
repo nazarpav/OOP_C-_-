@@ -1,0 +1,10 @@
+12.000000+12.000000| Time: 55:23:11
+2.000000+2.000000| Time: 3:24:11
+2.000000/2.000000| Time: 21:26:11
+8.000000+8.000000| Time: 26:26:11
+two num is 0| Time: 40:30:11
+two num is 0| Time: 7:42:11
+two num is 0| Time: 56:42:11
+two num is 0| Time: 11:44:11
+two num is 0| Time: 48:46:11
+two num is 0| Time: 0:47:11
