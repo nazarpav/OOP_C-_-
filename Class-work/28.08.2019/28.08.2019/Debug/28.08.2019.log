@@ -1,0 +1,44 @@
+﻿  main.cpp
+e:\oop c++\class-work\28.08.2019\28.08.2019\main.cpp(69): warning C4267: return: преобразование из "size_t" в "short"; возможна потеря данных
+e:\oop c++\class-work\28.08.2019\28.08.2019\main.cpp(136): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\xutility(3520): error C2678: бинарный "==": не найден оператор, принимающий левый операнд типа "std::pair<const _Kty,_Ty>" (или приемлемое преобразование отсутствует)
+          with
+          [
+              _Kty=Units,
+              _Ty=Unit *
+          ]
+  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\exception(331): note: может быть "bool std::operator ==(const std::exception_ptr &,std::nullptr_t) noexcept" [найдено при поиске с зависимостью от аргументов]
+  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\exception(326): note: или       "bool std::operator ==(std::nullptr_t,const std::exception_ptr &) noexcept" [найдено при поиске с зависимостью от аргументов]
+  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\exception(321): note: или       "bool std::operator ==(const std::exception_ptr &,const std::exception_ptr &) noexcept" [найдено при поиске с зависимостью от аргументов]
+  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\system_error(266): note: или       "bool std::operator ==(const std::error_code &,const std::error_code &) noexcept" [найдено при поиске с зависимостью от аргументов]
+  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\system_error(272): note: или       "bool std::operator ==(const std::error_code &,const std::error_condition &) noexcept" [найдено при поиске с зависимостью от аргументов]
+  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\system_error(278): note: или       "bool std::operator ==(const std::error_condition &,const std::error_code &) noexcept" [найдено при поиске с зависимостью от аргументов]
+  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\system_error(284): note: или       "bool std::operator ==(const std::error_condition &,const std::error_condition &) noexcept" [найдено при поиске с зависимостью от аргументов]
+  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\xutility(3520): note: при попытке сопоставить список аргументов "(std::pair<const _Kty,_Ty>, const _Ty)"
+          with
+          [
+              _Kty=Units,
+              _Ty=Unit *
+          ]
+          and
+          [
+              _Ty=Units
+          ]
+  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\xutility(3533): note: выполняется компиляция ссылки на экземпляр шаблон функции "_InIt std::_Find_unchecked1<_InIt,_Ty>(_InIt,const _InIt,const _Ty &,std::false_type)"
+          with
+          [
+              _InIt=std::_Tree_unchecked_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Units,Unit *>>>>,
+              _Ty=Units
+          ]
+  d:\ивжуал студио\vc\tools\msvc\14.15.26726\include\xutility(3542): note: выполняется компиляция ссылки на экземпляр шаблон функции "_InIt std::_Find_unchecked<std::_Tree_unchecked_iterator<std::_Tree_val<std::_Tree_simple_types<_Ty>>>,Units>(const _InIt,const _InIt,const Units &)"
+          with
+          [
+              _InIt=std::_Tree_unchecked_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Units,Unit *>>>>,
+              _Ty=std::pair<const Units,Unit *>
+          ]
+  e:\oop c++\class-work\28.08.2019\28.08.2019\main.cpp(74): note: выполняется компиляция ссылки на экземпляр шаблон функции "_InIt std::find<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<_Ty>>>,Units>(_InIt,const _InIt,const Units &)"
+          with
+          [
+              _InIt=std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Units,Unit *>>>>,
+              _Ty=std::pair<const Units,Unit *>
+          ]
