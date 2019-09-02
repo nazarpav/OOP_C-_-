@@ -155,26 +155,11 @@ class PC
 class PC_factory
 {
 public:
-	virtual Box* Create_box()
-	{
-		return nullptr;
-	}
-	virtual Processor* Create_Processor()
-	{
-		return nullptr;
-	}
-	virtual Main_board* Create_Main_board()
-	{
-		return nullptr;
-	}
-	virtual Hdd* Create_Hdd()
-	{
-		return nullptr;
-	}
-	virtual Memory* Create_Memory()
-	{
-		return nullptr;
-	}
+	virtual Box* Create_box() = 0;
+	virtual Processor* Create_Processor() = 0;
+	virtual Main_board* Create_Main_board() = 0;
+	virtual Hdd* Create_Hdd() = 0;
+	virtual Memory* Create_Memory() = 0;
 };
 class PC_configuration:public PC
 {
