@@ -131,25 +131,52 @@ protected:
 
 class PC
 {
-	Box Box()
+	Box* Box_;
+	Processor* Processor_;
+	Main_board* Main_board_;
+	Hdd* Hdd_;
+	Memory* Memory_;
+public:
+	Box* Get_box()
 	{
-
+		return  Box_;
 	}
-	Processor Processor()
+	Processor* Get_processor()
 	{
-
+		return Processor_;
 	}
-	Main_board Main_board()
+	Main_board* Get_main_board()
 	{
-
+		return Main_board_;
 	}
-	Hdd Hdd()
+	Hdd* Get_Hdd()
 	{
-
+		return Hdd_;
 	}
-	Memory Memory()
+	Memory* Get_memory()
 	{
+		return Memory_;
+	}
 
+	void Set_box(Box* b)
+	{
+		this->Box_ = b;
+	}
+	void Set_processor(Processor* p)
+	{
+		this->Processor_ = p;
+	}
+	void Set_main_board(Main_board* m)
+	{
+		Main_board_ = m;
+	}
+	void Set_Hdd(Hdd* h)
+	{
+		Hdd_ = h;
+	}
+	void Set_memory(Memory*m)
+	{
+		Memory_=m;
 	}
 };
 class PC_factory
@@ -161,7 +188,7 @@ public:
 	virtual Hdd* Create_Hdd() = 0;
 	virtual Memory* Create_Memory() = 0;
 };
-class PC_configuration:public PC
+class PC_configuration
 {
 	PC_factory *pc= nullptr;
 public:
@@ -169,14 +196,13 @@ public:
 	{
 		this->pc = pc;
 	}
-	PC_factory* PC_factory()
+	void PC_factory(PC*pc_)
 	{
-		pc->Create_box()->Get_type();
-		pc->Create_Processor()->Get_type();
-		pc->Create_Main_board()->Get_type();
-		pc->Create_Hdd()->Get_type();
-		pc->Create_Memory()->Get_type();
-		return pc;
+		pc_->Set_box(pc->Create_box());
+		pc_->Set_processor(pc->Create_Processor());
+		pc_->Set_main_board(pc->Create_Main_board());
+		pc_->Set_Hdd(pc->Create_Hdd());
+		pc_->Set_memory(pc->Create_Memory());
 	}
 };
 
@@ -233,11 +259,24 @@ public:
 
 int main()
 {
+	PC p;
 	PC_configuration office_pc(new Office_PC_factory);
-	office_pc.PC_factory();
+	office_pc.PC_factory(&p);
+	p.Get_box()->Get_type();
+	p.Get_Hdd()->Get_type();
+	p.Get_main_board()->Get_type();
+	p.Get_memory()->Get_type();
+	p.Get_processor()->Get_type();
 	cout << endl;
-	PC_configuration Home_pc(new Home_PC_factory);
-	Home_pc.PC_factory();
+	PC p_;
+	PC_configuration home_pc(new Home_PC_factory);
+	home_pc.PC_factory(&p_);
+	p_.Get_box()->Get_type();
+	p_.Get_Hdd()->Get_type();
+	p_.Get_main_board()->Get_type();
+	p_.Get_memory()->Get_type();
+	p_.Get_processor()->Get_type();
+	cout << endl;
 	system("pause");
 	return 0;
 }

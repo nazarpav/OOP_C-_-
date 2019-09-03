@@ -80,6 +80,7 @@ class SUV_auto_tehnology :public Auto_tehnology
 		cout << "SUV car salon\n";
 	}
 };
+
 class Conveyor
 {
 
@@ -90,15 +91,17 @@ class Conveyor
 		this->tehnology= tehnology;
 	}*/
 public:
-	void Build(Auto_tehnology* tehnology)
+	Auto_tehnology* Build(Auto_tehnology* tehnology)
 	{
 		tehnology->Build_body();
 		tehnology->Install_engine();
 		tehnology->Install_wheels();
 		tehnology->Paint();
 		tehnology->Prepare_salon();
+		return tehnology;
 	}
 };
+
 int main()
 {
 	Conveyor conveyor;
