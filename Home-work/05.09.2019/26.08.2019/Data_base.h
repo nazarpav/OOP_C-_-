@@ -8,57 +8,107 @@
 using namespace std;
 
 std::string now();
-
+short Rand(short num)
+{
+	return rand() % num + 1;
+}
+int File_size(string path) {
+	ifstream mySource;
+	mySource.open(path, ios_base::binary);
+	mySource.seekg(0, ios_base::end);
+	int size = mySource.tellg();
+	mySource.close();
+	return size;
+}
 class Database
 {
-	string connection_string;
+	fstream out;
+	const string connection_string = "database.txt";
 	bool is_connect;
 public:
-	bool Connetc(string str_conn = "database.txt")
+	Database()
 	{
-		ofstream out;
-		out.open(str_conn, ios_base::out | ios_base::app);
+		is_connect = false;
+	}
+	~Database()
+	{
+		out.close();
+	}
+	bool Connetc()
+	{
+		out.open(connection_string, ios_base::out | ios_base::app);
 		is_connect= out.is_open();
 		out.close();
+		if (is_connect == false)
+			return is_connect;
+		if (Rand(100) <= 40)
+			is_connect = false;
+		return is_connect;
 	}
-};
 
-class Logger
-{
-private:
-	static Logger * p_instance;
-
-	Logger() {}
-	Logger(const Logger&);
-	Logger& operator=(Logger&);
-public:
-	static Logger * GetInstance() {
-		if (p_instance == NULL/*!p_instance*/)
-			p_instance = new Logger();
-		return p_instance;
-	}
-	void Log(const string massange)
+	void Log(string msg)
 	{
-		ofstream out;
-		string path = "LOG.txt";
-		out.open(path, ios_base::out | ios_base::app);
-		out << massange << "| Time: " << now() << endl;
+		out.open(connection_string, ios_base::out | ios_base::app);
+		out << msg << "| Time: " << now() << endl;
 		out.close();
 	}
+
 };
+class Database_proxy
+{
+	const string connection_string_local = "local_database.txt";
+	const string connection_string = "database.txt";
+	Database realDB;
+	fstream fstr;
+	bool is_connect;
+public:
+	Database_proxy()
+	{
+		is_connect = false;
+	}
+	bool Connetc()
+	{
+		is_connect = realDB.Connetc();
+		return is_connect;
+	}
+
+	void Log(string msg)
+	{
+		if (is_connect == false)
+		{
+			fstr.open(connection_string_local, ios_base::out | ios_base::app);
+			fstr << msg << "| Time: " << now() <<"\t with local"<< endl;
+			fstr.close();
+			return;
+		}
+		if (File_size(connection_string) != 0)
+		{
+			ifstream input(connection_string_local);
+			ofstream output(connection_string, ios_base::app);
+			output << input.rdbuf();
+			output.close();
+			input.close();
+			fstr.open(connection_string_local, ios::out | ios_base::trunc);
+			fstr.close();
+		}
+		realDB.Log(msg);
+	}
+
+	~Database_proxy()
+	{
+		fstr.close();
+	}
+};
+
 std::string now()
 {
-	//#include <atltime.h>
-	//#include <ctime>
 	string time;
 	CTime obj;
 	obj = obj.GetCurrentTime();
 	int Hour = obj.GetHour();
 	int Minutes = obj.GetMinute();
 	int Seconds = obj.GetSecond();
-	time = to_string(Seconds) + ":" + to_string(Minutes) + ":" + to_string(Hour);
+	time = to_string(Seconds) + ":" + to_string(Minutes) + ":" + to_string(Hour)+" data type-> "+"S,M,H";
 	return time;
 }
-
-Logger * Logger::p_instance = 0;
 
