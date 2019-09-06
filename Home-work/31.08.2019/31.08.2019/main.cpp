@@ -1,260 +1,72 @@
 #include<iostream>
-#include<string>
 #include<ctime>
 #include<queue>
+#include<string>
+#include<map>
+#include"Transport.h"
+#include"Enum_estimated_delivery_time.h"
 using namespace std;
 
-enum Estimated_delivery_time{ Slow_delivery=1, Ordinary_delivery, Fast_delivery};
-struct Cargo;
-
-struct Cargo
+class Nova_poshta
 {
-private:
-	short weigth;
-	short size;
-	short ID_;
-	Estimated_delivery_time delivery_time;
+	map<short, Transport*> transport_map;
 public:
-	static short Counter_id;
-	Cargo(short weigth,short size, Estimated_delivery_time delivery_time)
+	Nova_poshta()
 	{
-		ID_=++Counter_id;
-		this->weigth = weigth;
-		this->size = size;
-		this->delivery_time = delivery_time;
-	}
-	short Get_id()
-	{
-		return this->ID_;
-	}
-	short Get_size()
-	{
-		return this->size;
-	}
-	short Get_weigth()
-	{
-		return this->weigth;
-	}
-	Estimated_delivery_time Get_delivery_time()
-	{
-		return this->delivery_time;
-	}
-};
+		short tmp=0;
+		transport_map[tmp++]=new Small_car_type_1;
+		transport_map[tmp++]=new Small_car_type_2;
 
-class Transport
-{
-protected:
-	int carrying_capacity;
-	int luggage_compartment_size;
-	Estimated_delivery_time  speed_delivery;
-public:
-	virtual bool Add_Cargo(Cargo& cargo) = 0;
-};
+		transport_map[tmp++]=new Minivan_car_type_1;
+		transport_map[tmp++]=new Minivan_car_type_2;
 
-class Small_car_type_1:public Transport
-{
-public:
-	Small_car_type_1()
-	{
-		this->carrying_capacity = 500;
-		this->speed_delivery = Ordinary_delivery;
-		this->luggage_compartment_size = 500;
+		transport_map[tmp++] = new Bus_car_type_1;
+		transport_map[tmp++] = new Bus_car_type_2;
+
+		transport_map[tmp++] = new Truck_car_type_1;
+		transport_map[tmp++] = new Truck_car_type_2;
+
+		transport_map[tmp++] = new Airplane_type_1;
+		transport_map[tmp] = new Airplane_type_2;
 	}
-	virtual bool Add_Cargo(Cargo& cargo)override
+	bool Factory(Cargo& cargo)
 	{
-		if (carrying_capacity >= cargo.Get_weigth() && cargo.Get_delivery_time() == speed_delivery && luggage_compartment_size >= cargo.Get_size())
+		/*short num = 0;
+	label_factory:*/
+		for (short i = 0; i < transport_map.size(); i++)
 		{
-			return true;
+			if (transport_map[i]->Delivery_Cargo(cargo/*,num*/))
+			{
+				return true;
+			}
 		}
-		return false;
-	}
-};
-class Small_car_type_2 :public Transport
-{
-public:
-	Small_car_type_2()
-	{
-		this->carrying_capacity = 250;
-		this->speed_delivery = Fast_delivery;
-		this->luggage_compartment_size = 250;
-	}
-	virtual bool Add_Cargo(Cargo& cargo)override
-	{
-		if (carrying_capacity >= cargo.Get_weigth() && cargo.Get_delivery_time() == speed_delivery && luggage_compartment_size >= cargo.Get_size())
-		{
-			return true;
-		}
+		/*if (num++ <= 10)
+			goto label_factory;*/
 		return false;
 	}
 };
 
 
-class Minivan_car_type_1 :public Transport
-{
-public:
-	Minivan_car_type_1()
-	{
-		this->carrying_capacity = 1000;
-		this->speed_delivery = Fast_delivery;
-		this->luggage_compartment_size = 1000;
-	}
-	virtual bool Add_Cargo(Cargo& cargo)override
-	{
-		if ((carrying_capacity>= cargo.Get_weigth()&& carrying_capacity/2 <= cargo.Get_weigth()) && cargo.Get_delivery_time() == speed_delivery && (luggage_compartment_size >= cargo.Get_size()&& luggage_compartment_size/2 >= cargo.Get_size()))
-		{
-			return true;
-		}
-		return false;
-	}
-};
-class Minivan_car_type_2 :public Transport
-{
-public:
-	Minivan_car_type_2()
-	{
-		this->carrying_capacity = 850;
-		this->speed_delivery = Ordinary_delivery;
-		this->luggage_compartment_size = 850;
-	}
-	virtual bool Add_Cargo(Cargo& cargo)override
-	{
-		if ((carrying_capacity >= cargo.Get_weigth() && carrying_capacity / 2 <= cargo.Get_weigth()) && cargo.Get_delivery_time() == speed_delivery && (luggage_compartment_size >= cargo.Get_size() && luggage_compartment_size / 2 >= cargo.Get_size()))
-		{
-			return true;
-		}
-		return false;
-	}
-};
 
-class Bus_car_type_1 :public Transport
-{
-public:
-	Bus_car_type_1()
-	{
-		this->carrying_capacity = 2000;
-		this->speed_delivery = Ordinary_delivery;
-		this->luggage_compartment_size = 2000;
-	}
-	virtual bool Add_Cargo(Cargo& cargo)override
-	{
-		if ((carrying_capacity >= cargo.Get_weigth() && carrying_capacity / 2 <= cargo.Get_weigth()) && cargo.Get_delivery_time() == speed_delivery && (luggage_compartment_size >= cargo.Get_size() && luggage_compartment_size / 2 >= cargo.Get_size()))
-		{
-			return true;
-		}
-		return false;
-	}
-};
-class Bus_car_type_2 :public Transport
-{
-public:
-	Bus_car_type_2()
-	{
-		this->carrying_capacity = 1500;
-		this->speed_delivery = Slow_delivery;
-		this->luggage_compartment_size = 1500;
-	}
-	virtual bool Add_Cargo(Cargo& cargo)override
-	{
-		if ((carrying_capacity >= cargo.Get_weigth() && carrying_capacity / 2 <= cargo.Get_weigth()) && cargo.Get_delivery_time() == speed_delivery && (luggage_compartment_size >= cargo.Get_size() && luggage_compartment_size / 2 >= cargo.Get_size()))
-		{
-			return true;
-		}
-		return false;
-	}
-};
-
-class Truck_car_type_1 :public Transport
-{
-public:
-	Truck_car_type_1()
-	{
-		this->carrying_capacity = 4000;
-		this->speed_delivery = Slow_delivery;
-		this->luggage_compartment_size = 4000;
-	}
-	virtual bool Add_Cargo(Cargo& cargo)override
-	{
-		if ((carrying_capacity >= cargo.Get_weigth() && carrying_capacity / 2 <= cargo.Get_weigth()) && cargo.Get_delivery_time() == speed_delivery && (luggage_compartment_size >= cargo.Get_size() && luggage_compartment_size / 2 >= cargo.Get_size()))
-		{
-			return true;
-		}
-		return false;
-	}
-};
-class Truck_car_type_2 :public Transport
-{
-public:
-	Truck_car_type_2()
-	{
-		this->carrying_capacity = 3500;
-		this->speed_delivery = Ordinary_delivery;
-		this->luggage_compartment_size = 3500;
-	}
-	virtual bool Add_Cargo(Cargo& cargo)override
-	{
-		if ((carrying_capacity >= cargo.Get_weigth() && carrying_capacity / 2 <= cargo.Get_weigth()) && cargo.Get_delivery_time() == speed_delivery && (luggage_compartment_size >= cargo.Get_size() && luggage_compartment_size / 2 >= cargo.Get_size()))
-		{
-			return true;
-		}
-		return false;
-	}
-};
-
-class Airplane_type_1 :public Transport
-{
-public:
-	Airplane_type_1()
-	{
-		this->carrying_capacity = 4000;
-		this->speed_delivery = Ordinary_delivery;
-		this->luggage_compartment_size = 4000;
-	}
-	virtual bool Add_Cargo(Cargo& cargo)override
-	{
-		if ((carrying_capacity >= cargo.Get_weigth() && carrying_capacity / 2 <= cargo.Get_weigth()) && cargo.Get_delivery_time() == speed_delivery && (luggage_compartment_size >= cargo.Get_size() && luggage_compartment_size / 2 >= cargo.Get_size()))
-		{
-			return true;
-		}
-		return false;
-	}
-};
-class Airplane_type_2 :public Transport
-{
-public:
-	Airplane_type_2()
-	{
-		this->carrying_capacity = 3500;
-		this->speed_delivery = Fast_delivery;
-		this->luggage_compartment_size = 3500;
-	}
-	virtual bool Add_Cargo(Cargo& cargo)override
-	{
-		if ((carrying_capacity >= cargo.Get_weigth() && carrying_capacity / 2 <= cargo.Get_weigth()) && cargo.Get_delivery_time() == speed_delivery && (luggage_compartment_size >= cargo.Get_size() && luggage_compartment_size / 2 >= cargo.Get_size()))
-		{
-			return true;
-		}
-		return false;
-	}
-};
 
 
 short Rand(short num)
 {
-	const short step = 5;
+	const short step = 50;
 	return (rand() % (num/step + 1)*step);
 }
 Estimated_delivery_time Rand_estimated_delivery_time()
 {
-	switch (Rand(3))
+	switch (rand() % 3+1)
 	{
+	case Slow_delivery:
+		return Slow_delivery;
+		break;
 	case Ordinary_delivery:
 		return Ordinary_delivery;
 		break;
 	case Fast_delivery:
 		return Fast_delivery;
-		break;
-	case Slow_delivery:
-		return Slow_delivery;
 		break;
 	}
 }
@@ -264,12 +76,31 @@ short Cargo::Counter_id = 0;
 int main()
 {
 	srand(unsigned(time(NULL)));
+	const short size_queue = 100;
+	short num_buf;
 	queue<Cargo> queue_;
-	for (short i = 0; i < 100; i++)
+	Nova_poshta nova_poshta;
+	string buf;
+	for (short i = 0; i < size_queue; i++)
 	{
-	queue_.push(Cargo(Rand(1000), Rand(500), Rand_estimated_delivery_time()));
-	cout << queue_.back().Get_id();
+		num_buf = Rand(4000);
+	queue_.push(Cargo(num_buf+ Rand(150), num_buf+Rand(250), Rand_estimated_delivery_time()));
 	}
+	for (short i = 0; i < size_queue; i++)
+	{
+		if (!(nova_poshta.Factory(queue_.front())))
+		{
+			cout <<"Cargo (id = "<< queue_.front().Get_id() <<") not delivered! (Size=> "<< queue_.front().Get_size()<<" Weigth=> "<< queue_.front().Get_weigth()<<" Delivery time=>  "<< queue_.front().Get_delivery_time() << "-------------------------------<" << endl;
+		}
+		else
+		{
+			cout << "Cargo (id = " << queue_.front().Get_id() << ") >>DELIVERED!<< (Size=> " << queue_.front().Get_size() << " Weigth=> " << queue_.front().Get_weigth() << " Delivery time=>  " << queue_.front().Get_delivery_time() << endl;
+
+		}
+		queue_.pop();
+	}
+
+
 
 	system("pause");
 	return 0;
