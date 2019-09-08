@@ -3,19 +3,31 @@
 #include<string>
 #include<array>
 #include<ctime>
+#include<stack>
 #include<conio.h>
 #include<Windows.h>
 #include"Console_colors.h"
 using namespace std;
 const int size_w = 35;
-const int size_h = 26;
+const int size_h = 6;
+class Game;
+class GAME_memento
+{
+	pair<short, short>_state;
+public:
+	friend Game;
+	GAME_memento(short x, short y)
+	{
+		_state = make_pair(x, y);
+	}
+};
 class Game
 {
+	stack<GAME_memento*>game_memento;
 	array<array<string, size_w+1>, size_h> map;
 	short player_pos_x,player_pos_y;
 	string buf_to_render_map;
 	short counter_win;
-	bool flag_first;
 	const string STRATEGY[7] = { { "Strategy | KEY\n" }
 	,{" - 1 | KEY \'1\'or\'c\'\n"}
 	,{" - 3 | KEY \'4\'or\'d\'\n"}
@@ -25,7 +37,7 @@ class Game
 	,{" + 7 | KEY \'8\'or\'r\'\n"}
 	};
 	void Create_map();
-	void Render(string strategy_ );
+	void Render(string strategy_ , bool first_flag = false);
 	bool IS_game_over();
 	bool IS_WIN();
 	bool Start_game();
@@ -60,7 +72,19 @@ class Game
 	inline string Strategy5();
 	inline string Strategy7();
 	inline string Strategy8();
+	inline void Clear_ctack()
+	{
+		while (!(game_memento.empty()))
+		{
+			game_memento.pop();
+		}
+	}
+	inline void Create_memento(short x,short y)
+	{
+		game_memento.push(new GAME_memento(x,y));
+	}
 public:
+	friend GAME_memento;
 	Game();
 	inline void To_game(Game& obj)
 	{

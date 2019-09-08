@@ -39,7 +39,7 @@ void Game::Create_map()
 
 
 
-void Game::Render(string strategy_)
+void Game::Render(string strategy_,bool first_flag)
 {
 	Set_color(CYAN);
 	buf_to_render_map += char(218);
@@ -58,14 +58,13 @@ void Game::Render(string strategy_)
 		}
 		buf_to_render_map += char(179);
 
-		if (flag_first)
+		if (first_flag)
 		{
 		map[player_pos_y-1][size_w] = strategy_;
 		buf_to_render_map += map[i][size_w];
 		}
 		buf_to_render_map += '\n';
 	}
-	flag_first = true;
 	buf_to_render_map += char(192);
 	for (int j = 0; j < size_w; j++)
 	{
@@ -74,9 +73,8 @@ void Game::Render(string strategy_)
 	buf_to_render_map += char(217);
 	cout << buf_to_render_map;
 	buf_to_render_map = "";
-	cout<<endl << "x = " << player_pos_x << " | y = " << player_pos_y;
+	cout<<endl << "x = " << player_pos_x << " | y = " << player_pos_y<<"   ";
 
-	cout << endl<<map[player_pos_y][size_w];
 	Set_color(DARKGREEN);
 	for (int j = 0; j < STRATEGY->capacity()/2; j++)
 	{
@@ -115,7 +113,6 @@ bool Game::IS_WIN()
 		cout << "PRESS ENTER to continue!!!";
 		cin.get();
 		counter_win++;
-		flag_first = false;
 		Console_clear();
 		return true;
 	}
@@ -162,6 +159,7 @@ bool Game::IS_WIN()
 
 bool Game::Start_game()
 {
+	Clear_ctack();
 	Create_map();
 	string strategy_l=" ";
 	Render(strategy_l);
@@ -174,6 +172,7 @@ bool Game::Start_game()
 		case 'C':
 			if (player_pos_x == 0)
 				continue;
+			Create_memento(player_pos_x, player_pos_y);
 			strategy_l = Strategy1();
 			break;
 		case '2':
@@ -181,6 +180,7 @@ bool Game::Start_game()
 		case 'V':
 			if (player_pos_x >=size_w-2)
 				continue;
+			Create_memento(player_pos_x, player_pos_y);
 			strategy_l = Strategy2();
 			break;
 		case '4':
@@ -188,6 +188,7 @@ bool Game::Start_game()
 		case 'D':
 			if (player_pos_x <= 3)
 				continue;
+			Create_memento(player_pos_x, player_pos_y);
 			strategy_l = Strategy4();
 			break;
 		case '5':
@@ -195,6 +196,7 @@ bool Game::Start_game()
 		case 'F':
 			if (player_pos_x >= size_w - 4)
 				continue;
+			Create_memento(player_pos_x, player_pos_y);
 			strategy_l = Strategy5();
 			break;
 		case '7':
@@ -202,6 +204,7 @@ bool Game::Start_game()
 		case 'E':
 			if (player_pos_x <= 6)
 				continue;
+			Create_memento(player_pos_x, player_pos_y);
 			strategy_l = Strategy7();
 			break;
 		case '8':
@@ -209,17 +212,29 @@ bool Game::Start_game()
 		case 'R':
 			if (player_pos_x >= size_w - 7)
 				continue;
+			Create_memento(player_pos_x, player_pos_y);
 			strategy_l = Strategy8();
 			break;
-			case char(27) :
+		case char(27) :
 			return false;
-				break;
+			break;
+		case ' ':
+		case '0':
+			if (player_pos_y == 0)
+				continue;
+			Render("  ",true);
+			player_pos_x=game_memento.top()->_state.first;
+			player_pos_y=game_memento.top()->_state.second;
+			Render("  ");
+			game_memento.pop();
+			continue;
+			break;
 		default:
 			cout << char(7);
 			continue;
 			break;
 		}
-		Render(strategy_l);
+		Render(strategy_l,true);
 		if (IS_game_over())
 		{
 			return false;
@@ -237,7 +252,6 @@ Game::Game()
 	player_pos_x=0;
 	player_pos_y=0;
 	counter_win = 0;
-	flag_first = false;
 	HideConsoleCursor();
 }
 
