@@ -76,7 +76,7 @@ short Cargo::Counter_id = 0;
 int main()
 {
 	srand(unsigned(time(NULL)));
-	const short size_queue = 100;
+	const short size_queue = 1000;
 	short num_buf;
 	queue<Cargo> queue_;
 	Nova_poshta nova_poshta;
