@@ -76,14 +76,14 @@ void Game::Render(string strategy_,bool first_flag)
 	cout<<endl << "x = " << player_pos_x << " | y = " << player_pos_y<<"   ";
 
 	Set_color(DARKGREEN);
-	for (int j = 0; j < STRATEGY->capacity()/2; j++)
+	for (int j = 0; j < (STRATEGY->capacity()+1)/2; j++)
 	{
 		SetCursor(size_w+4, j);
 		cout << STRATEGY[j];
 	}
-	SetCursor(size_w + 4, STRATEGY->capacity() / 2);
+	SetCursor(size_w + 4, (STRATEGY->capacity()+1) / 2);
 	Set_color(DARKYELLOW);
-	cout << "Counter WIN = " << counter_win;
+	cout << " Counter WIN = " << counter_win;
 	Set_color(DARKRED);
 	SetCursor(player_pos_x + 1, player_pos_y + 1);
 	cout << char(219);

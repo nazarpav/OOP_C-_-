@@ -8,8 +8,8 @@
 #include<Windows.h>
 #include"Console_colors.h"
 using namespace std;
-const int size_w = 35;
-const int size_h = 6;
+const int size_w = 31;
+const int size_h = 21;
 class Game;
 class GAME_memento
 {
@@ -28,13 +28,14 @@ class Game
 	short player_pos_x,player_pos_y;
 	string buf_to_render_map;
 	short counter_win;
-	const string STRATEGY[7] = { { "Strategy | KEY\n" }
+	const string STRATEGY[8] = { { "Strategy | KEY\n" }
 	,{" - 1 | KEY \'1\'or\'c\'\n"}
 	,{" - 3 | KEY \'4\'or\'d\'\n"}
 	,{" - 6 | KEY \'7\'or\'e\'\n"}
 	,{" + 2 | KEY \'2\'or\'v\'\n"}
 	,{" + 4 | KEY \'5\'or\'f\'\n"}
 	,{" + 7 | KEY \'8\'or\'r\'\n"}
+	,{" undo| KEY \'_\'or\'0\'\n"}
 	};
 	void Create_map();
 	void Render(string strategy_ , bool first_flag = false);
